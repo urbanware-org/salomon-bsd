@@ -1,0 +1,12 @@
+
+CHANGELOG (SaLoMon-BSD)
+
+    Next release (outstanding)
+
+        * Revised the usage information output (negligible changes).
+        * Revised various command-line arguments (added short variants).
+
+    Version 1.13.0 (2019-01-25)
+
+        * First version of the BSD port (based on SaLoMon 1.13.0).
+

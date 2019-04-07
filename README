@@ -1,0 +1,59 @@
+
+README (SaLoMon-BSD)
+
+    Project
+
+        SaLoMon-BSD (SaLoMon BSD port)
+        Version 1.13.0
+        Copyright (C) 2019 by Ralf Kilian
+
+        GitHub: https://github.com/urbanware-org/salomon
+        GitLab: https://gitlab.com/urbanware-org/salomon
+
+    Definition
+
+        The SaLoMon project is a simple log file monitor and analyzer with
+        various highlighting features which can also be used with other plain
+        text files.
+
+        It comes with a shell script, that uses popular shell utilities and
+        runs on Unix-like operating systems, only.
+
+        Further information can found be on the website or GitHub repository
+        of the project.
+
+    License
+
+        This project is distributed under the MIT License. You should have
+        received a copy of the license along with this program (see 'LICENSE'
+        file). If not, you can find the license terms here:
+
+            https://opensource.org/licenses/MIT
+
+    Requirements
+
+        The SaLoMon project takes advantage of some shell utilities which need
+        to be installed. Details about the requirements can be found inside
+        the included 'REQUIREMENTS' file.
+
+    Usage
+
+        For fundamental documentation as well as some usage examples for each
+        component of the project, you may have a look at the text files inside
+        the included 'docs' sub-directory.
+
+    Contact
+
+        Any suggestions, questions, bugs to report or feedback to give? If so,
+        you can find the contact information inside the 'CONTACT' file.
+
+    Legal information
+
+        The project name is completely fictitious. Any correspondences with
+        existing websites, applications, companies and/or other projects are
+        purely coincidental.
+
+        All trademarks belong to their respective owners.
+
+        Errors and omissions excepted.
+
