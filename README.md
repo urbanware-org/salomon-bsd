@@ -40,11 +40,11 @@ Furthermore, as you can see on the right, there is the option to use interactive
 
 ### Quick start
 
-You can get started with *SaLoMon* in less than two minutes by reading the [quick start guide](../../wiki/Quick-start).
+You can get started with *SaLoMon* in less than two minutes by reading the *SaLoMon* [quick start guide](https://github.com/urbanware-org/salomon/wiki/Quick-start).
 
 ### Documentation
 
-You can find a fundamental documentation inside the [wiki](../../wiki).
+You can find a fundamental documentation inside the *SaLoMon* [wiki](https://github.com/urbanware-org/salomon/wiki).
 
 In the `docs` sub-directory of the project, there are plain text files containing a detailed documentation for each component with further information and usage examples.
 
