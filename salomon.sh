@@ -114,7 +114,7 @@ else
                 shift
                 head_lines="$1"
                 shift
-            ;;            
+            ;;
             -ha|--highlight-all)
                 highlight_all=1
                 shift

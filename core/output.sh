@@ -241,7 +241,7 @@ print_output_line() {
             return
         fi
     fi
- 
+
     if [ $highlight_cut_off = 0 ]; then
         term_cols=$(( $(tput cols) + 1 ))
         line_length=${#line_lower}
