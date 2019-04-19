@@ -6,8 +6,8 @@
 # Copyright (C) 2019 by Ralf Kilian
 # Distributed under the MIT License (https://opensource.org/licenses/MIT)
 #
-# GitHub: https://github.com/urbanware-org/salomon
-# GitLab: https://gitlab.com/urbanware-org/salomon
+# GitHub: https://github.com/urbanware-org/salomon-bsd
+# GitLab: https://gitlab.com/urbanware-org/salomon-bsd
 # ============================================================================
 
 pause_output() {
