@@ -16,13 +16,15 @@
 
 The *SaLoMon* project is a simple log file monitor and analyzer with various filter and highlighting features which can also be used with other text files.
 
-:information_source: This is the *BSD* port of the project (developed and tested on *OpenBSD* 6.4).
+:information_source: This is the *BSD* port of the project developed and tested on *BSD* (see [distributions](#distributions)).
 
 :penguin: The *Linux* version can be found [here](https://github.com/urbanware-org/salomon).
 
 [Top](#salomon-)
 
 ## Details
+
+### Project
 
 <img src="https://raw.githubusercontent.com/urbanware-org/salomon/master/wiki/salomon_output.png" alt="SaLoMon sample output" width=320px align="right"/>The project was primarily built to monitor and analyze log files inside a terminal emulator and also on systems without a graphical user interface. Of course, you can use *SaLoMon* to also process (most likely analyze) other plain text files of any kind.
 
@@ -33,6 +35,13 @@ Each line can easily be colorized with a user-defined color (and additionally hi
 <img src="https://raw.githubusercontent.com/urbanware-org/salomon/master/wiki/salomon_dialog_inputfile.png" alt="SaLoMon interactive dialog" align="right"/>There are various additional combinable features such as multiple ways to filter the output (e. g. by using exclude and remove patterns) and different methods to additionally highlight the filter terms. The output can also be paused or slowed down with a user-defined delay.
 
 Furthermore, as you can see on the right, there is the option to use interactive dialogs instead of or in combination with command-line arguments which is useful when e. g. running *SaLoMon* via shortcut in a terminal window on a graphical user interface.
+
+### Distributions
+
+The *SaLoMon* project has been tested on the following distributions:
+*   *OpenBSD* 6.5 (used to develop)
+*   *FreeBSD* 12.0
+*   *NetBSD* 8.0
 
 [Top](#salomon-)
 
