@@ -1,6 +1,17 @@
 
 CHANGELOG (SaLoMon-BSD)
 
+    Next version (outstanding)
+
+        + Added the shebang adjustment script (required in case the shebang
+          inside the script files causes a bad interpreter error).
+
+        * Revised the command check function inside the common core module.
+
+        # Fixed the possible shebang error in the compatibility script when
+          performing the function test (replaced static string with an
+          environment variable).
+
     Version 1.13.1 (2019-04-19)
 
         * Revised the usage information output (negligible changes).
