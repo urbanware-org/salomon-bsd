@@ -9,6 +9,7 @@ REQUIREMENTS (SaLoMon-BSD)
     higher) must be installed in order to use SaLoMon.
 
         # pkg_add bash
+        # pkg install bash
 
     Optional package requirements:
 
@@ -17,7 +18,7 @@ REQUIREMENTS (SaLoMon-BSD)
 
         Supported tools are 'dialog' (or 'cdialog') and 'whiptail'.
 
-            - dialog (version 1.1 or higher is recommended)
+            - cdialog (version 1.1 or higher is recommended)
             - whiptail (version 0.52.1 or higher is recommended)
 
         Notice that this feature will not work with 'Xdialog' as SaLoMon is
