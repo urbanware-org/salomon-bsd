@@ -688,9 +688,9 @@ else
     fi
 
     # Check requirements
-    check_command grep 2 grep
-    check_command sed 1 sed
-    check_command tail 1 coreutils
+    check_command grep grep
+    check_command sed sed
+    check_command tail coreutils
 fi
 
 if [ $interactive -eq 1 ]; then
