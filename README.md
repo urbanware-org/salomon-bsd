@@ -52,9 +52,17 @@ In the `docs` sub-directory of the project, there are plain text files containin
 
 ## Requirements
 
+### Packages
+
 The *SaLoMon* project was developed on (and for) the *Bash* shell, which is the default shell on many *Unix*-like systems (or at least *Linux* distributions).
 
-Furthermore, it uses popular shell utilities that should be pre-installed by default, see the included `REQUIREMENTS` file for details.
+Furthermore, it uses popular shell utilities that should be pre-installed by default. See the included `REQUIREMENTS` file for details.
+
+### Shebang
+
+The default shebang inside the scripts is the one needed on *OpenBSD*.
+
+In case the scripts will not run and return a bad interpreter error, simply run the included `shebang.sh` script (without any arguments). This will automatically determine the path to the `bash` binary and adjust the shebang inside all other *SaLoMon* script files.
 
 [Top](#salomon-)
 
