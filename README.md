@@ -39,7 +39,7 @@ Furthermore, as you can see on the right, there is the option to use interactive
 ### Distributions
 
 The *SaLoMon* project has been tested on the following distributions:
-*   *OpenBSD* 6.5 (used to develop)
+*   *OpenBSD* 6.5 (used for development)
 *   *FreeBSD* 12.0
 *   *NetBSD* 8.0
 
