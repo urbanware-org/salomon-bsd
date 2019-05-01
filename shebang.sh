@@ -20,12 +20,16 @@ elif [ ! -n "$BASH" ]; then
     echo "error: This script must be executed using the Bash shell, run the"
     echo "       compatibility script ('compat.sh') for details."
     exit 1
+elif [ "$BASH" = "/usr/local/bin/bash" ]; then
+    echo "No need to adjust any shebangs (already correct)."
+    exit
 fi
 
 script_dir=$(dirname $(readlink -f $0))
 temp_file_list="$(dirname $(mktemp -u))/salomon_file_list.tmp"
 temp_file_shebang="$(dirname $(mktemp -u))/salomon_shebang.tmp"
 
+echo "Adjusting shebang to '#!$BASH'."
 find $script_dir -type f | grep "\.sh$" > $temp_file_list
 while read line; do
     sed -e "s#\#\!\/.*#\#\!$BASH#g" < $line > $temp_file_shebang
