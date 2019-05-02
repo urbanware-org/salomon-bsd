@@ -29,9 +29,8 @@ USAGE (compat.sh)
 
         The default shebang inside the scripts is the one needed on OpenBSD.
         In case the scripts will not run and return a "bad interpreter" error,
-        simply run the included 'shebang.sh' script (without any arguments).
-        This will automatically determine the path to the `bash` binary and
-        adjust the shebang inside all other *SaLoMon* script files.
+        simply run the included shebang adjustment script. Further information
+        can be found inside the included documentation for that script.
 
     3. Compatibility check
 
