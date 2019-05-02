@@ -20,9 +20,6 @@ elif [ ! -n "$BASH" ]; then
     echo "error: This script must be executed using the Bash shell, run the"
     echo "       compatibility script ('compat.sh') for details."
     exit 1
-elif [ "$BASH" = "/usr/local/bin/bash" ]; then
-    echo "No need to adjust any shebangs (already correct)."
-    exit
 fi
 
 script_dir=$(dirname $(readlink -f $0))
