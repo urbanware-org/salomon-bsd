@@ -71,7 +71,7 @@ Furthermore, it uses popular shell utilities that should be pre-installed by def
 
 The default shebang inside the scripts is the one needed on *OpenBSD*.
 
-In case the scripts will not run and return a bad interpreter error, simply run the included `shebang.sh` script (without any arguments). This will automatically determine the path to the `bash` binary and adjust the shebang inside all other *SaLoMon* script files.
+In case the scripts will not run and return a "bad interpreter" error, simply run the included `shebang.sh` script (without any arguments). This will automatically determine the path to the `bash` binary and adjust the shebang inside all other *SaLoMon* script files.
 
 [Top](#salomon-)
 
