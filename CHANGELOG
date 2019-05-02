@@ -3,6 +3,7 @@ CHANGELOG (SaLoMon-BSD)
 
     Next version (outstanding)
 
+        + Added some alternative file extensions for the global config file.
         + Added the shebang adjustment script (required in case the shebang
           inside the script files causes a "bad interpreter" error).
 
