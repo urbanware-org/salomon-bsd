@@ -220,7 +220,7 @@ print_output_header() {
 
     print_line "*"
     echo
-    trap "cancel_process" 2 20
+    trap "cancel_process" 2
 }
 
 print_output_line() {
