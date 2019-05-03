@@ -54,7 +54,7 @@ echo "Press the Return key to proceed."
 read
 
 $salomon_script --monitor -i $salomon_sample_log -c $salomon_sample_colors \
-                -f "2014" -hu -ic --prompt -t 12
+                -f "2014" -hm -ic --prompt -t 12
 if [ $? -ne 2 ]; then salomon_status=$(( salomon_status + 1 )); fi
 
 echo
@@ -77,7 +77,7 @@ echo
 echo "Press the Return key to proceed."
 read
 
-$salomon_script $salomon_args -f "2014" -r "-02" -hu -ic \
+$salomon_script $salomon_args -f "2014" -r "-02" -hm -ic \
                               --interactive
 if [ $? -ne 0 ]; then salomon_status=$(( salomon_status + 1 )); fi
 
