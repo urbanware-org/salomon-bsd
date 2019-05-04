@@ -14,6 +14,8 @@ CHANGELOG (SaLoMon-BSD)
         # Fixed the possible shebang error in the compatibility script when
           performing the function test (replaced static string with an
           environment variable).
+        # Fixed the signal (inter-process communication) bug (SIGINT was not
+          handled correctly).
 
     Version 1.13.1 (2019-04-19)
 
