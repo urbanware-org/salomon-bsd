@@ -9,6 +9,8 @@ CHANGELOG (SaLoMon-BSD)
 
         * Revised the command check function inside the common core module.
 
+        # Fixed the pattern parsing bug (using multiple semicolon separated
+          terms did not work in general).
         # Fixed the possible shebang error in the compatibility script when
           performing the function test (replaced static string with an
           environment variable).
