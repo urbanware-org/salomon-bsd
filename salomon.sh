@@ -412,7 +412,7 @@ else
         filter_list=$(sed -e "s/^;*//g" \
                           -e "s/;*$//g" \
                           -e "s/\ /#/g" \
-                          -e "s/;/\n/g" <<< "$temp")
+                          -e $'s/;/\\\n/g' <<< "$temp")
         filter_pattern=$(sed -e "s/#/\ /g" <<< "$temp")
         filter=1
     fi
@@ -470,7 +470,7 @@ else
                         sed -e "s/^;*//" \
                             -e "s/;*$//" \
                             -e "s/\ /#/g" \
-                            -e "s/;/\n/g") <<< "$exclude_pattern")
+                            -e $'s/;/\\\n/g') <<< "$exclude_pattern")
         exclude=1
         concat_arg "-e $exclude_pattern"
     fi
@@ -489,7 +489,7 @@ else
                        sed -e "s/^;*//" \
                            -e "s/;*$//" \
                            -e "s/\ /#/g" \
-                           -e "s/;/\n/g") <<< "$remove_pattern")
+                           -e $'s/;/\\\n/g') <<< "$remove_pattern")
         remove=1
         concat_arg "-r $remove_pattern"
     fi
