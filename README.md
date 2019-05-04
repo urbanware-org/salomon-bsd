@@ -38,10 +38,14 @@ Furthermore, as you can see on the right, there is the option to use interactive
 
 ### Distributions
 
-The *SaLoMon* project has been tested on the following distributions (64-bit):
-*   *OpenBSD* 6.5 with *Bash* 4 (also used for development)
-*   *FreeBSD* 12.0 with *Bash* 4
-*   *NetBSD* 8.0 with *Bash* 4
+The *SaLoMon* project has been tested on the following distributions:
+
+| Distribution | Version | Architecture | Bash | Comment                                  |
+| ------------ | ------: | :----------: | ---: | ---------------------------------------- |
+| *OpenBSD*    |     6.4 | `amd64`      |  4.4 | This has also been used for development. |
+| *OpenBSD*    |     6.5 | `amd64`      |  5.0 |                                          |
+| *FreeBSD*    |    12.0 | `amd64`      |  5.0 |                                          |
+| *NetBSD*     |     8.0 | `amd64`      |  5.0 | Requires running `shebang.sh` first.     |
 
 [Top](#salomon-)
 
