@@ -40,12 +40,12 @@ Furthermore, as you can see on the right, there is the option to use interactive
 
 The *SaLoMon* project has been tested on the following distributions:
 
-| Distribution | Version | Architecture | Bash | Comment                                  |
-| ------------ | ------: | :----------: | ---: | ---------------------------------------- |
-| *OpenBSD*    |     6.4 | `amd64`      |  4.4 | This has also been used for development. |
-| *OpenBSD*    |     6.5 | `amd64`      |  5.0 |                                          |
-| *FreeBSD*    |    12.0 | `amd64`      |  5.0 |                                          |
-| *NetBSD*     |     8.0 | `amd64`      |  5.0 | Requires running `shebang.sh` first.     |
+| Distribution | Version | Architecture | Bash | Comment                                                |
+| ------------ | ------: | :----------: | ---: | ------------------------------------------------------ |
+| *OpenBSD*    |     6.4 | `amd64`      |  4.4 | This constellation has also been used for development. |
+| *OpenBSD*    |     6.5 | `amd64`      |  5.0 |                                                        |
+| *FreeBSD*    |    12.0 | `amd64`      |  5.0 |                                                        |
+| *NetBSD*     |     8.0 | `amd64`      |  5.0 | Requires running `shebang.sh` first.                   |
 
 [Top](#salomon-)
 
@@ -73,9 +73,15 @@ Furthermore, it uses popular shell utilities that should be pre-installed by def
 
 ### Shebang
 
-The default shebang inside the scripts is the one needed on *OpenBSD*.
+The *Bash* shebang inside the scripts is the default one from *OpenBSD*.
 
-In case the scripts will not run and return a "bad interpreter" error, simply run the included `shebang.sh` script (without any arguments). This will automatically determine the path to the `bash` binary and adjust the shebang inside all other *SaLoMon* script files.
+In case the scripts will not run and return a "bad interpreter" error, simply run the included shebang adjustment script (without any arguments). This will automatically determine the path to the `bash` binary and adjust the shebang inside all other *SaLoMon* script files.
+
+Due to the fact, that the script does not have a shebang it has to be explicitly executed using *Bash* as follows:
+
+```bash
+bash shebang.sh
+```
 
 [Top](#salomon-)
 
