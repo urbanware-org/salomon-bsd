@@ -77,7 +77,7 @@ The *Bash* shebang inside the scripts is the default one from *OpenBSD*.
 
 In case the scripts will not run and return a "bad interpreter" error, simply run the included shebang adjustment script (without any arguments). This will automatically determine the path to the `bash` binary and adjust the shebang inside all other *SaLoMon* script files.
 
-Due to the fact, that the script does not have a shebang it has to be explicitly executed using *Bash* as follows:
+Due to the fact, that the script itself does not have a shebang it has to be explicitly executed using *Bash* as follows:
 
 ```bash
 bash shebang.sh
