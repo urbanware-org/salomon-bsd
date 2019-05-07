@@ -38,14 +38,16 @@ Furthermore, as you can see on the right, there is the option to use interactive
 
 ### Distributions
 
-The *SaLoMon* project has been tested on the following distributions:
+Originally, the *BSD* port was developed on *OpenBSD*, but now on *FreeBSD*.
 
-| Distribution | Version | Architecture | Bash | Comment                                                |
-| ------------ | ------: | :----------: | ---: | ------------------------------------------------------ |
-| *OpenBSD*    |     6.4 | `amd64`      |  4.4 | This constellation has also been used for development. |
-| *OpenBSD*    |     6.5 | `amd64`      |  5.0 |                                                        |
-| *FreeBSD*    |    12.0 | `amd64`      |  5.0 |                                                        |
-| *NetBSD*     |     8.0 | `amd64`      |  5.0 | Requires running `shebang.sh` first.                   |
+The project has been tested on the following distributions:
+
+| Distribution | Version | Architecture | Bash | Comment                                |
+| ------------ | ------: | :----------: | ---: | ---------------------------------------|
+| *OpenBSD*    |     6.4 | `amd64`      |  4.4 | See [limitations](#limitations) below. |
+| *OpenBSD*    |     6.5 | `amd64`      |  5.0 |                                        |
+| *FreeBSD*    |    12.0 | `amd64`      |  5.0 |                                        |
+| *NetBSD*     |     8.0 | `amd64`      |  5.0 | Requires running `shebang.sh` first.   |
 
 [Top](#salomon-)
 
@@ -73,11 +75,11 @@ Furthermore, it uses popular shell utilities that should be pre-installed by def
 
 ### Shebang
 
-The *Bash* shebang inside the scripts is the default one from *OpenBSD*.
+The *Bash* shebang inside the scripts is the default one from *OpenBSD* and *FreeBSD*.
 
-In case the scripts will not run and return a "bad interpreter" error, simply run the included shebang adjustment script (without any arguments). This will automatically determine the path to the `bash` binary and adjust the shebang inside all other *SaLoMon* script files.
+In case the scripts will not run and return a "bad interpreter" error (e. g. on *NetBSD*), simply run the included shebang adjustment script (without any arguments). This will automatically determine the path to the `bash` binary and adjust the shebang inside all other *SaLoMon* script files.
 
-Due to the fact, that the script itself does not have a shebang it has to be explicitly executed using *Bash* as follows:
+Due to the fact, that the script itself does not have a shebang it has to be explicitly executed using the *Bash* shell as follows:
 
 ```bash
 bash shebang.sh
@@ -87,9 +89,13 @@ bash shebang.sh
 
 ## Limitations
 
-So far, there is only one limitation compared to the *Linux* version.
+### General
 
 The feature to highlight a filter match with additional conversion to uppercase letters (by using `--highlight-upper`) did not work properly and has been removed.
+
+### *OpenBSD*
+
+The `sed` command does not support the `i` flag (ignore case). Due to this, the filter terms are always case sensitive.
 
 [Top](#salomon-)
 
