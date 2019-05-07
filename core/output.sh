@@ -309,8 +309,13 @@ print_output_line() {
                     temp=$(echo -e "${color_high}${term_case}${cl_n}"\
                                    "\b${color_code}")
 
-                    output=$(echo -e "${color_code}${line}${cl_n}" | \
-                             sed -e "s/$term_upper/$temp/g")
+                    if [ "$bsd_name" = "OpenBSD" ]; then
+                        output=$(echo -e "${color_code}${line}${cl_n}" | \
+                                 sed -e "s/$term_upper/$temp/g")
+                    else
+                        output=$(echo -e "${color_code}${line}${cl_n}" | \
+                                 sed -e "s/$term_upper/$temp/ig")
+                    fi
 
                     line="$output"
                     filter_match=1
