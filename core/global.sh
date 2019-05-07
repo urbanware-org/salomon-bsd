@@ -17,6 +17,8 @@ set_global_variables() {
     # ------------------------------------------------------------------------
     version="1.14.0"
 
+    bsd_name=$(uname)
+
     arg_case=""
     arg_list=$(readlink -f "$0")
     input_file=""
