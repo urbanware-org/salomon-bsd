@@ -303,7 +303,11 @@ print_output_line() {
 
             for filter_term in $filter_list; do
                 term=$(sed -e "s/#/\ /g" <<< "$filter_term")
-                term_upper=$(tr '[:lower:]' '[:upper:]' <<< "$term")
+                if [ "$bsd_name" = "OpenBSD" ]; then
+                    term_upper=$term
+                else
+                    term_upper=$(tr '[:lower:]' '[:upper:]' <<< "$term")
+                fi
 
                 grep $arg_case "$term" <<< "$line" &>/dev/null
                 if [ $? -eq 0 ]; then
