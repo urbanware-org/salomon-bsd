@@ -45,7 +45,7 @@ The project has been tested on the following distributions:
 | Distribution | Version | Architecture | Bash | Comment                                |
 | ------------ | ------: | :----------: | ---: | ---------------------------------------|
 | *OpenBSD*    |     6.4 | `amd64`      |  4.4 | See [limitations](#limitations) below. |
-| *OpenBSD*    |     6.5 | `amd64`      |  5.0 |                                        |
+| *OpenBSD*    |     6.5 | `amd64`      |  5.0 | See [limitations](#limitations) below. |
 | *FreeBSD*    |    12.0 | `amd64`      |  5.0 |                                        |
 | *NetBSD*     |     8.0 | `amd64`      |  5.0 | Requires running `shebang.sh` first.   |
 
