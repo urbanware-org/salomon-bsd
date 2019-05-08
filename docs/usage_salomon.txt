@@ -18,6 +18,8 @@ USAGE (salomon.sh)
              2.5.2  Quotation marks
              2.5.3  Backslashes
           2.6  Interactive dialogs
+          2.7  Limitations
+             2.7.1  OpenBSD
         3.  Processing an input file
           3.1  Relevant keystrokes
           3.2  Monitor the file
@@ -84,6 +86,11 @@ USAGE (salomon.sh)
                 corresponding lines (if a filter was given) by inverting
                 their colors (sort of marker pen like). It can be used with
                 and without a color config.
+
+                You may also use '--highlight-upper', which works the same way
+                and additionally switches the letters of the filter terms to
+                uppercase. However, this does not work on OpenBSD. See section
+                2.7.1 for details.
 
             2.3.3 Highlight whole lines
 
@@ -194,6 +201,15 @@ USAGE (salomon.sh)
 
                 dialog_show_welcome=0
 
+        2.7 Limitations
+
+            2.7.1 OpenBSD
+
+                The 'sed' command does not support the 'i' (ignore case) flag.
+                Due to this, the command-line arguments '--ignore-case' and
+                '--highlight-upper' do not have any effect, so the filter
+                terms are always case sensitive.
+
     3. Processing input file
 
         The following examples use a color config file. See section 2.3 for
@@ -277,7 +293,10 @@ USAGE (salomon.sh)
 
         It is possible to filter the output to e. g. only return lines that
         contain certain terms. There is also the optional '--ignore-case'
-        argument to ignore the case of the given filter pattern.
+        command-line argument to ignore the case of the given filter pattern.
+
+        The '--ignore-case' argument does not have any effect on OpenBSD. See
+        section 2.7.1 for details.
 
         The filter pattern also allows spaces, including leading and trailing
         ones.
