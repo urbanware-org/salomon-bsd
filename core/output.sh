@@ -173,6 +173,8 @@ print_output_header() {
 
         if [ $highlight_matches -eq 1 ]; then
             temp="${cl_lg}Filter matches"
+        elif [ $highlight_upper -eq 1 ]; then
+              temp="${cl_lg}Filter matches (in uppercase)"
         elif [ $highlight_all -eq 1 ]; then
             temp="${cl_lg}All lines"
         else
@@ -276,7 +278,7 @@ print_output_line() {
     get_color_match "$line"
     output="${color_code}${line}${cl_n}${line_spaces}"
     if [ ! -z "$filter_list" ]; then
-        if [ $highlight_matches -eq 1 ]; then
+        if [ $highlight_matches -eq 1 ] || [ $highlight_upper -eq 1 ]; then
             if [ $color_match -eq 1 ]; then
                 if [ -z "$(grep "\[38;" <<< "$color_code")" ]; then
                     color_temp=$((sed -e "s/\[3/\[7;3/g" | \
@@ -305,7 +307,11 @@ print_output_line() {
 
                 grep $arg_case "$term" <<< "$line" &>/dev/null
                 if [ $? -eq 0 ]; then
-                    term_case=$term
+                    if [ $highlight_upper -eq 1 ]; then
+                        term_case=$term_upper
+                    else
+                        term_case=$term
+                    fi
                     temp=$(echo -e "${color_high}${term_case}${cl_n}"\
                                    "\b${color_code}")
 

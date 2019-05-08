@@ -133,6 +133,10 @@ else
                 highlight_matches=1
                 shift
             ;;
+            -hu|--highlight-upper)
+                highlight_upper=1
+                shift
+            ;;
             -ic|--ignore-case)
                 arg_case="-i"
                 shift
