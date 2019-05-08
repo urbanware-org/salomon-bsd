@@ -1,6 +1,15 @@
 
 CHANGELOG (SaLoMon-BSD)
 
+    Version 1.14.1 (2019-05-08)
+
+        + Added an optional command-line argument (and feature) to highlight
+          the filter terms additionally with uppercase letters (removed while
+          porting due to issues).
+
+        # Fixed the filter case-sensitivity bug (the filter terms were always
+          case sensitive).
+
     Version 1.14.0 (2019-05-05)
 
         + Added some alternative file extensions for the global config file.
