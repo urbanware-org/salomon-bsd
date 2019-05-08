@@ -89,13 +89,10 @@ bash shebang.sh
 
 ## Limitations
 
-### General
-
-The feature to highlight a filter match with additional conversion to uppercase letters (by using `--highlight-upper`) did not work properly and has been removed.
-
 ### *OpenBSD*
 
-The `sed` command does not support the `i` flag (ignore case). Due to this, the filter terms are always case sensitive.
+The `sed` command does not support the `i` (ignore case) flag. Due to this, the command-line arguments `--ignore-case` and
+`--highlight-upper` do not have any effect, as the filter terms are always case sensitive.
 
 [Top](#salomon-)
 
