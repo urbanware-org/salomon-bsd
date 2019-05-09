@@ -208,7 +208,8 @@ USAGE (salomon.sh)
                 The 'sed' command does not support the 'i' (ignore case) flag.
                 Due to this, the command-line arguments '--ignore-case' and
                 '--highlight-upper' do not have any effect, so the filter
-                terms are always case sensitive.
+                terms are always case sensitive. This also applies to the
+                strings for the '--remove' argument.
 
     3. Processing input file
 
