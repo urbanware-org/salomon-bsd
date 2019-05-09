@@ -318,15 +318,13 @@ print_output_line() {
                     fi
                     temp=$(echo -e "${color_high}${term_case}${cl_n}"\
                                    "\b${color_code}")
-
                     if [ "$bsd_name" = "OpenBSD" ]; then
                         output=$(echo -e "${color_code}${line}${cl_n}" | \
                                  sed -e "s/$term_upper/$temp/g")
                     else
                         output=$(echo -e "${color_code}${line}${cl_n}" | \
                                  sed -e "s/$term_upper/$temp/ig")
-                    fi
-
+                    fi  
                     line="$output"
                     filter_match=1
                 fi
@@ -353,7 +351,11 @@ print_output_line() {
     if [ $remove -eq 1 ]; then
         for string in $remove_list; do
             temp=$(sed -e "s/#/\ /g" <<< "$string")
-            line=$(echo -e "$output" | sed -e "s/${temp}//g")
+            if [ "$bsd_name" = "OpenBSD" ]; then
+                line=$(echo -e "$output" | sed -e "s/${temp}//g")
+            else
+                line=$(echo -e "$output" | sed -e "s/${temp}//ig")
+            fi
             output="$line"
         done
     fi
