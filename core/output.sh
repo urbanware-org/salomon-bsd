@@ -324,7 +324,7 @@ print_output_line() {
                     else
                         output=$(echo -e "${color_code}${line}${cl_n}" | \
                                  sed -e "s/$term_upper/$temp/ig")
-                    fi  
+                    fi
                     line="$output"
                     filter_match=1
                 fi
