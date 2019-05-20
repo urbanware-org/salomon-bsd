@@ -1,6 +1,11 @@
 
 CHANGELOG (SaLoMon-BSD)
 
+    Next version (outstanding)
+
+        # Fixed the remove pattern case-sensitivity bug (the filter terms
+          were always case sensitive).
+
     Version 1.14.1 (2019-05-08)
 
         + Added an optional command-line argument (and feature) to highlight
