@@ -40,7 +40,7 @@ Furthermore, as you can see on the right, there is the option to use interactive
 
 Originally, the *BSD* port was developed on *OpenBSD*, but now on *FreeBSD*.
 
-The project has been tested on the following distributions:
+The project has been tested on the following distributions, yet.
 
 | Distribution | Version | Architecture | Bash | Comment                                |
 | ------------ | ------: | :----------: | ---: | ---------------------------------------|
