@@ -360,6 +360,10 @@ print_output_line() {
         done
     fi
 
+    if [ -z "$output" ]; then
+        return
+    fi
+
     if [ $highlight_matches -eq 1 ]; then
         highlight_all=0
     else
