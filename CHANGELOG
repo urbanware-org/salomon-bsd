@@ -1,7 +1,7 @@
 
 CHANGELOG (SaLoMon-BSD)
 
-    Next version (outstanding)
+    Version 1.14.2 (2019-06-30)
 
         * Revised the color table output (adjusted color information for pure
           text-based interfaces).
