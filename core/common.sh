@@ -254,8 +254,11 @@ ${lb}optional arguments:${no}
                         highlight the filter matches by inverting their colors
   -hu, --highlight-upper
                         same as '--highlight-matches' and with to uppercase
-                        converted letters
-  -ic, --ignore-case    ignore the case of the given filter pattern
+                        converted letters (has no effect on OpenBSD, for
+                        details see section 2.7.1 inside the documentation)
+  -ic, --ignore-case    ignore the case of the given filter pattern (has no
+                        effect on OpenBSD, for details see section 2.7.
+                        inside the documentation)
   --interactive         same as '--dialogs'
   --no-info             do not display the information header and footer
   -p, --prompt          prompt before exit (in case the process gets canceled
