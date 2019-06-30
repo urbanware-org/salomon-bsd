@@ -3,6 +3,10 @@ CHANGELOG (SaLoMon-BSD)
 
     Next version (outstanding)
 
+        * Revised the color table output (adjusted color information for pure
+          text-based interfaces).
+        * Revised the installation script (negligible changes).
+
         # Fixed the remove pattern case-sensitivity bug (the filter terms
           were always case sensitive).
 
