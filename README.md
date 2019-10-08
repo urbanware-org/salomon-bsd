@@ -16,9 +16,11 @@
 
 The *SaLoMon* project is a simple log file monitor and analyzer with various filter and highlighting features which can also be used with other text files.
 
-This is the *BSD* port of the project developed and tested on various [distributions](#distributions). Notice that the version numbers of this port are independent from the *Linux* version of the project.
+This is the *BSD* port of the project developed and tested on various [distributions](#distributions).
 
 :penguin: The *Linux* version can be found [here](https://github.com/urbanware-org/salomon).
+
+:information_source: Notice that the version numbers of this port are independent from the *Linux* version of the project.
 
 [Top](#salomon-)
 
