@@ -40,6 +40,13 @@ confirm() {
     echo
     echo -e "${cl_lc}SaLoMon install/uninstall script${cl_n}"
     echo
+    if [ "$script_mode" = "install" ]; then
+        echo -e "Installing SaLoMon is ${cl_yl}optional${cl_n} and not"\
+                "mandatory in order to use it. Further"
+        echo    "information can be found inside the documentation file for"\
+                "this script."
+        echo
+    fi
     echo -e "This will $script_action SaLoMon. Do you wish to proceed"\
              "($yesno)? \c"
     read choice

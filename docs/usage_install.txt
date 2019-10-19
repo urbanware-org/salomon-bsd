@@ -45,6 +45,9 @@ USAGE (install.sh)
         directory is not part of the path related environment variable, the
         symbolic link will be created inside '/usr/bin' instead.
 
+        After installing, you can directly run the 'salomon' command (system-
+        wide) without having to give the full path to the main script.
+
         Now, to install, type one of the following commands, depending on the
         way you prefer.
 
