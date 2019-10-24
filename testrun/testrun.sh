@@ -2,6 +2,7 @@
 
 salomon_script_dir=$(dirname $(readlink -f $0) | sed -e "s/testrun//g")
 salomon_script="$salomon_script_dir/salomon.sh"
+salomon_testrun_log="/tmp/salomon_testrun_$$.log"
 salomon_sample_log="$salomon_script_dir/samples/foobar.log"
 salomon_sample_colors="$salomon_script_dir/colors/log_colors.cfg"
 salomon_sample_log="$salomon_script_dir/samples/foobar.log"
@@ -16,47 +17,52 @@ echo
 sleep 1
 
 clear
-$salomon_script $salomon_args -f "2014" -hm
+$salomon_script $salomon_args -f "2014" -hm | tee $salomon_testrun_log
 if [ $? -ne 0 ]; then salomon_status=$(( salomon_status + 1 )); fi
 
 clear
-$salomon_script $salomon_args -f "2014" -hm --no-info
+$salomon_script $salomon_args -f "2014" -hm --no-info \
+    | tee -a $salomon_testrun_log
 if [ $? -ne 0 ]; then salomon_status=$(( salomon_status + 1 )); fi
 
 clear
-$salomon_script $salomon_args -f "2014" -ha
+$salomon_script $salomon_args -f "2014" -ha | tee -a $salomon_testrun_log
 if [ $? -ne 0 ]; then salomon_status=$(( salomon_status + 1 )); fi
 
 clear
-$salomon_script $salomon_args -f "2014" -ha --cut-off
+$salomon_script $salomon_args -f "2014" -ha --cut-off \
+    | tee -a $salomon_testrun_log
 if [ $? -ne 0 ]; then salomon_status=$(( salomon_status + 1 )); fi
 
 clear
-$salomon_script $salomon_args -f "config file" -hm -ic
+$salomon_script $salomon_args -f "config file" -hm -ic \
+    | tee -a $salomon_testrun_log
 if [ $? -ne 0 ]; then salomon_status=$(( salomon_status + 1 )); fi
 
 clear
-$salomon_script $salomon_args -f "config;file;success;foo" -hm -ic
+$salomon_script $salomon_args -f "config;file;success;foo" -hm -ic \
+    | tee -a $salomon_testrun_log
 if [ $? -ne 0 ]; then salomon_status=$(( salomon_status + 1 )); fi
 
 clear
-$salomon_script $salomon_args -e "process"
+$salomon_script $salomon_args -e "process" | tee -a $salomon_testrun_log
 if [ $? -ne 0 ]; then salomon_status=$(( salomon_status + 1 )); fi
 
 clear
-$salomon_script $salomon_args -r "2014-04-02 "
+$salomon_script $salomon_args -r "2014-04-02 " | tee -a $salomon_testrun_log
 if [ $? -ne 0 ]; then salomon_status=$(( salomon_status + 1 )); fi
 
 clear
-$salomon_script $salomon_args -h 4
+$salomon_script $salomon_args -h 4 | tee -a $salomon_testrun_log
 if [ $? -ne 0 ]; then salomon_status=$(( salomon_status + 1 )); fi
 
 clear
-$salomon_script $salomon_args -t 4
+$salomon_script $salomon_args -t 4 | tee -a $salomon_testrun_log
 if [ $? -ne 0 ]; then salomon_status=$(( salomon_status + 1 )); fi
 
 clear
-$salomon_script -i $salomon_sample_log --analyze --pause 4
+$salomon_script -i $salomon_sample_log --analyze --pause 4 \
+    | tee -a $salomon_testrun_log
 if [ $? -ne 0 ]; then salomon_status=$(( salomon_status + 1 )); fi
 
 clear
@@ -66,9 +72,11 @@ echo "==  Please press Ctrl+C now once to  cancel  this test (required)." \
 echo "==" >> $salomon_sample_log_temp
 $salomon_script --monitor -i $salomon_sample_log_temp \
                 -f "2014; cancel ;=" \
-                -c $salomon_sample_colors  -hm -ic --prompt -t 14
-if [ $? -ne 2 ]; then salomon_status=$(( salomon_status + 1 )); fi
+                -c $salomon_sample_colors -hm -ic --prompt -t 14 \
+                | tee -a $salomon_testrun_log
+if [ $? -ne 130 ]; then salomon_status=$(( salomon_status + 1 )); fi
 
+echo >> $salomon_testrun_log
 rm -f $salomon_sample_log_temp
 clear
 echo -e "\e[93m\c"
@@ -85,5 +93,7 @@ if [ $salomon_status -eq 0 ]; then
 else
     echo -e "  Overall status: \e[91mFailed\e[0m (at least one test)"
 fi
+echo
+echo -e "For details see the file \e[96m$salomon_testrun_log\e[0m."
 echo
 exit $salomon_status
