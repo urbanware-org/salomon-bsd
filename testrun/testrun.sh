@@ -1,5 +1,15 @@
 #!/usr/local/bin/bash
 
+# ============================================================================
+# SaLoMon-BSD - Simple log file monitor and analyzer (BSD port)
+# Simple testrun script
+# Copyright (C) 2019 by Ralf Kilian
+# Distributed under the MIT License (https://opensource.org/licenses/MIT)
+#
+# GitHub: https://github.com/urbanware-org/salomon
+# GitLab: https://gitlab.com/urbanware-org/salomon
+# ============================================================================
+
 salomon_script_dir=$(dirname $(readlink -f $0) | sed -e "s/testrun//g")
 salomon_script="$salomon_script_dir/salomon.sh"
 salomon_testrun_log="/tmp/salomon_testrun_$$.log"
@@ -97,3 +107,5 @@ echo
 echo -e "For details see the file \e[96m$salomon_testrun_log\e[0m."
 echo
 exit $salomon_status
+
+# EOF
