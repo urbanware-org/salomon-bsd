@@ -451,8 +451,6 @@ init_dialogs() {
     else
         dlg_shadow=""
     fi
-
-    dialog_welcome
 }
 
 predef_error_dialog() {
@@ -465,10 +463,28 @@ predef_error_dialog() {
     fi
 
     if [ $dialog_program = "dialog" ]; then
-        dialog $dlg_shadow --title "Error" --colors --ok-label "Exit" \
+        dialog $dlg_shadow --title "Error" --colors --ok-label "Back" \
                            --msgbox "\Z1${dialog_text}." 8 60
     else
-        whiptail --title "Error" --ok-button "Exit" \
+        whiptail --title "Error" --ok-button "Back" \
+                 --msgbox "${dialog_text}." 8 60
+    fi
+}
+
+predef_info_dialog() {
+    dialog_text="$1"
+
+    if [ $dialog_shadow -ne 1 ]; then
+        dlg_shadow="$dlg_shadow"
+    else
+        dlg_shadow=""
+    fi
+
+    if [ $dialog_program = "dialog" ]; then
+        dialog $dlg_shadow --title "Information" --colors --ok-label "OK" \
+                           --msgbox "${dialog_text}." 8 60
+    else
+        whiptail --title "Information" --ok-button "OK" \
                  --msgbox "${dialog_text}." 8 60
     fi
 }
