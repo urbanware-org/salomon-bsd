@@ -66,8 +66,10 @@ usage() {
 
     echo "usage: salomon.sh [-i] [-u]"
     echo
-    echo "  -i, --install         install SaLoMon"
-    echo "  -u, --uninstall       uninstall SaLoMon"
+    echo "  -i, --install         install SaLoMon (requires superuser"\
+         "privileges)"
+    echo "  -u, --uninstall       uninstall SaLoMon (requires superuser"\
+         "privileges)"
     echo "  -?, -h, --help        print this help message and exit"
     echo
     echo "Further information and usage examples can be found inside the"\
