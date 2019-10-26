@@ -1,13 +1,13 @@
-#!/bin/bash
+#!/usr/local/bin/bash
 
 # ============================================================================
-# SaLoMon - Simple log file monitor and analyzer
+# SaLoMon-BSD - Simple log file monitor and analyzer (BSD port)
 # Interactive dialog mode core script
 # Copyright (C) 2019 by Ralf Kilian
 # Distributed under the MIT License (https://opensource.org/licenses/MIT)
 #
-# GitHub: https://github.com/urbanware-org/salomon
-# GitLab: https://gitlab.com/urbanware-org/salomon
+# GitHub: https://github.com/urbanware-org/salomon-bsd
+# GitLab: https://gitlab.com/urbanware-org/salomon-bsd
 # ============================================================================
 
 interactive_mode() {
@@ -160,23 +160,30 @@ get_color_file() {
         dialog_valid=1
         return
     else
-        filemsg="The given color config file"
+        msg="The given color config file"
         if [ ! -e "$color_file" ]; then
             color_file="${color_dir}${color_file}"
             if [ ! -e "$color_file" ]; then
-                predef_error_dialog "$filemsg '$user_input' does not exist"
+                predef_error_dialog "$msg '$user_input' does not exist"
                 color_file="$user_input"
                 return
             fi
         fi
 
         if [ ! -f "$color_file" ]; then
-            predef_error_dialog "$filemsg path '$user_input' is not a file"
+            predef_error_dialog "$msg path '$user_input' is not a file"
             color_file="$user_input"
             return
         else
-            concat_arg "-c $color_file"
-            dialog_valid=1
+            tail "$filepath" &>/dev/null
+            if [ $? -ne 0 ]; then
+                predef_error_dialog \
+                  "No read permission on the given input file '$filepath'"
+            else
+                read_color_file "$color_file"
+                concat_arg "-c $color_file"
+                dialog_valid=1
+            fi
         fi
     fi
 }
@@ -215,19 +222,19 @@ get_export_file() {
         dialog_valid=1
         return
     else
-        filemsg="The given export file path '$export_file'"
+        msg="The given export file path '$export_file'"
         if [ -e "$export_file" ]; then
             if [ -d "$export_file" ]; then
-                predef_error_dialog "$filemsg is not a file"
+                predef_error_dialog "$msg is not a file"
                 return
             elif [ -f "$export_file" ]; then
-                predef_error_dialog "$filemsg already exists"
+                predef_error_dialog "$msg already exists"
                 return
             fi
         else
             touch $export_file &>/dev/null
             if [ $? -ne 0 ]; then
-                predef_error_dialog "$filemsg seems to be read-only"
+                predef_error_dialog "$msg seems to be read-only"
                 return
             else
                 export_log=1
@@ -248,11 +255,23 @@ get_filter_pattern() {
         return
     else
         if [ -f "$filter_pattern" ]; then
-            filter_file="$filter_pattern"
-            read_filter
+            tail "$filter_file" &>/dev/null
+            if [ $? -ne 0 ]; then
+                predef_error_dialog \
+                  "No read permission on the given input file '$filepath'"
+            else
+                filter_file="$filter_pattern"
+                read_filter
+            fi
         elif [ -f "${filter_dir}${filter}" ]; then
             filter_file="${filter_dir}${filter}"
-            read_filter
+            tail "$filter_file" &>/dev/null
+            if [ $? -ne 0 ]; then
+                predef_error_dialog \
+                  "No read permission on the given input file '$filepath'"
+            else
+                read_filter
+            fi
         else
             if [[ $filter_pattern == *"#"* ]]; then
                 predef_error_dialog \
@@ -309,19 +328,19 @@ get_input_file() {
     fi
 
     for item in $input_file; do
-        filemsg="The given input file"
+        msg="The given input file"
         file=$(sed -e "s/^ *//g;s/ *$//g;s/\/\//\ /g" <<< $item)
         if [ -e "$file" ]; then
             filepath="$file"
         elif [ -e "/var/log/$file" ]; then
             filepath="/var/log/$file"
         else
-            predef_error_dialog "$filemsg '$file' does not exist"
+            predef_error_dialog "$msg '$file' does not exist"
             return
         fi
 
         if [ ! -f "$filepath" ]; then
-            predef_error_dialog "$filemsg path '$file' is not a file"
+            predef_error_dialog "$msg path '$file' is not a file"
             return
         else
             tail "$filepath" &>/dev/null
