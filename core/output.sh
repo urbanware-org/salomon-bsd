@@ -344,6 +344,7 @@ print_output_line() {
         fi
 
         if [ $filter_match -eq 0 ]; then
+            output=""
             return
         fi
     fi
@@ -378,7 +379,7 @@ print_output_line() {
     else
         echo -e "$output"
     fi
-    
+
     if [ $export_log -eq 1 ]; then
         echo -e "$output" >> $export_file
     fi
