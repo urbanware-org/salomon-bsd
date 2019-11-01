@@ -373,7 +373,12 @@ print_output_line() {
         fi
     fi
 
-    echo -e "$output"
+    if [ "$color_code" = "\e[0m" ] && [ $highlight_all -eq 0 ]; then
+        echo -e "\e[0m$line\e[0m"
+    else
+        echo -e "$output"
+    fi
+    
     if [ $export_log -eq 1 ]; then
         echo -e "$output" >> $export_file
     fi
