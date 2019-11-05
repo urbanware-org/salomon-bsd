@@ -120,6 +120,6 @@ Further information can be found inside the `CONTACT` file.
 
 ## Useless facts
 
-Whoever cares can find them [here](../../wiki#useless-facts).
+Whoever cares can find them [here](https://github.com/urbanware-org/salomon/wiki#useless-facts).
 
 [Top](#salomon-)
