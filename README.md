@@ -20,7 +20,7 @@ This is the *BSD* port of the project developed and tested on various [distribut
 
 :penguin: The *Linux* version can be found [here](https://github.com/urbanware-org/salomon).
 
-> Notice that although the version numbers of this port are similar to those of the *SaLoMon* for *Linux*, the releases are not necessarily related.
+> Notice that although the version numbers of this port are similar to those of *SaLoMon* for *Linux*, the releases are not necessarily related.
 
 [Top](#salomon-)
 
