@@ -20,7 +20,7 @@ This is the *BSD* port of the project developed and tested on various [distribut
 
 :penguin: The *Linux* version can be found [here](https://github.com/urbanware-org/salomon).
 
-:information_source: Notice that the version numbers of this port are independent from the *Linux* version of the project.
+Notice that although the version numbers of this port are similar to those of the *SaLoMon* project, the releases are not necessarily related.
 
 [Top](#salomon-)
 
@@ -93,7 +93,7 @@ bash shebang.sh
 
 ### *OpenBSD*
 
-The `sed` command does not support the `i` (ignore case) flag. Due to this, the command-line arguments `--ignore-case` and
+The `sed` command privided by default does not support the `i` (ignore case) flag. Due to this, the command-line arguments `--ignore-case` and
 `--highlight-upper` do not have any effect, as the filter terms are always case sensitive. This also applies to the strings for the `--remove` argument.
 
 [Top](#salomon-)
