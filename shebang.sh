@@ -26,10 +26,17 @@ script_dir=$(dirname $(readlink -f $0))
 temp_file_list="$(dirname $(mktemp -u))/salomon_file_list.tmp"
 temp_file_shebang="$(dirname $(mktemp -u))/salomon_shebang.tmp"
 
-echo "Adjusting shebang to '#!$BASH'."
+grep "bash" <<< $BASH &>/dev/null
+if [ $? -eq 0 ]; then
+    shebang=$BASH
+else
+    shebang=$(whereis bash | awk '{ print $2 }')
+fi
+
+echo "Adjusting shebang to '#!$shebang'."
 find $script_dir -type f | grep "\.sh$" > $temp_file_list
 while read line; do
-    sed -e "s#\#\!\/.*#\#\!$BASH#g" < $line > $temp_file_shebang
+    sed -e "s#\#\!\/.*#\#\!$shebang#g" < $line > $temp_file_shebang
     cat $temp_file_shebang > $line
 done < $temp_file_list
 
