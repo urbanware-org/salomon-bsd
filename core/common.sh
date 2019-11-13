@@ -12,7 +12,7 @@
 
 cancel_process() {
     echo
-    print_line "*"
+    print_line "*" 1
     temp="${cl_lr}Canceled ${cl_ly}on"
     print_line "${temp}${cl_lc} user request${cl_ly}."
 
@@ -53,6 +53,88 @@ check_command() {
     command -v $check_command &>/dev/null
     if [ $? -ne 0 ]; then
         usage "This script requires the '$required_pkg' package to work"
+    fi
+}
+
+check_config() {
+    check_config_value "$boxdrawing_chars"        integer 1
+    boxdrawing_chars=$config_value
+    check_config_value "$delay"                   integer 200
+    delay=$config_value
+    check_config_value "$dialog_program"          string  "auto" \
+      "auto dialog whiptail"
+    dialog_program=$config_value
+    check_config_value "$dialog_shadow"           integer 1
+    dialog_shadow=$config_value
+    check_config_value "$dialog_show_color"       integer 1
+    dialog_show_color=$config_value
+    check_config_value "$dialog_show_delay"       integer 1
+    dialog_show_delay=$config_value
+    check_config_value "$dialog_show_exclude"     integer 1
+    dialog_show_exclude=$config_value
+    check_config_value "$dialog_show_export"      integer 1
+    dialog_show_export=$config_value
+    check_config_value "$dialog_show_filter"      integer 1
+    dialog_show_filter=$config_value
+    check_config_value "$dialog_show_head_lines"  integer 1
+    dialog_show_head_lines=$config_value
+    check_config_value "$dialog_show_highlight"   integer 1
+    dialog_show_highlight=$config_value
+    check_config_value "$dialog_show_noinfo"      integer 1
+    dialog_show_noinfo=$config_value
+    check_config_value "$dialog_show_ignorecase"  integer 1
+    dialog_show_ignorecase=$config_value
+    check_config_value "$dialog_show_pause"       integer 1
+    dialog_show_pause=$config_value
+    check_config_value "$dialog_show_prompt"      integer 1
+    dialog_show_prompt=$config_value
+    check_config_value "$dialog_show_remove"      integer 1
+    dialog_show_remove=$config_value
+    check_config_value "$dialog_show_slowdown"    integer 1
+    dialog_show_slowdown=$config_value
+    check_config_value "$dialog_show_tail_lines"  integer 1
+    dialog_show_tail_lines=$config_value
+    check_config_value "$dialog_show_wait"        integer 1
+    dialog_show_wait=$config_value
+    check_config_value "$dialog_show_welcome"     integer 1
+    dialog_show_welcome=$config_value
+    check_config_value "$line_width"              string  "auto" "auto fixed"
+    line_width=$config_value
+    check_config_value "$separator_line"          integer 1
+    separator_line=$config_value
+    check_config_value "$highlight_forecolor"     string  "terminal" \
+      "terminal black white"
+    highlight_forecolor=$config_value
+    check_config_value "$usage_color"             integer 1
+    usage_color=$config_value
+}
+
+check_config_value() {
+    config_option="$1"
+    config_expect="$2"
+    config_default="$3"
+    config_values="$4"
+    config_value=""
+
+    if [ -z "$config_option" ]; then
+        config_value="$config_default"
+    else
+        if [ "$config_expect" = "integer" ]; then
+            re='^[0-9]+$'
+            if [[ ! "$config_option" =~ $re ]]; then
+                config_value="$config_default"
+            else
+                config_value="$config_option"
+            fi
+        else
+            for value in $config_values; do
+                config_value="$config_default"
+                if [ "$config_option" = "$value" ]; then
+                    config_value="$config_option"
+                    break
+                fi
+            done
+        fi
     fi
 }
 
@@ -125,7 +207,7 @@ deprecated_argument() {
     ins="You may use '${cl_lc}${arg_i}${cl_n}' instead."
 
     echo -e "${cl_lb}notice:${cl_n} $dep $ins"
-    sleep 1
+    sleep 3
 }
 
 prepare_path() {
@@ -143,14 +225,23 @@ prepare_path() {
 }
 
 print_arg_list() {
+    if [ $boxdrawing_chars -eq 1 ]; then
+        ln="═"
+    else
+        ln="="
+    fi
+
     arg_temp="/tmp/salomon_args_$$.txt"
     echo "$arg_list" > $arg_temp
 
     clear
-    arg_lh="${cl_ly}[${cl_lc}Command-line arguments${cl_ly}]"
-    arg_ld="===================================================="
-    echo -e "${cl_dy}==${arg_lh}${cl_dy}${arg_ld}${cl_n}"
-    echo
+    message="${cl_ly}[${cl_lc}Command-line arguments${cl_ly}]${cl_dy}"
+    echo -e "${cl_dy}$ln$ln${message}\c"
+    for number in $(seq 1 52); do
+        echo -e "$ln\c"
+    done
+
+    echo -e "\e[0m\n"
     echo -e "With the given information, the command line would look like"\
             "this (without"
     echo -e "'${cl_lc}--dialog${cl_n}' or '${cl_lc}--interactive${cl_n}'"\
@@ -223,6 +314,7 @@ ${lr}required arguments:${no}
   -i INPUT_FILE, --input-file INPUT_FILE
                         input file to analyze or monitor (can be given
                         multiple times)
+
 ${lb}optional arguments:${no}
   -c COLOR_FILE, --color-file COLOR_FILE
                         color config file for colorizing lines which contain
@@ -231,7 +323,7 @@ ${lb}optional arguments:${no}
                         when using '--highlight-all'
   -d DELAY, --delay DELAY
                         delay for the '--slow' argument below (milliseconds,
-                        integer between 100 and 900, default is $delay)
+                        number between 100 and 900, default is $delay)
   --dialogs             use interactive dialogs (for details see section 2.6
                         inside the documentation)
   -e EXCLUDE, --exclude EXCLUDE
@@ -254,15 +346,12 @@ ${lb}optional arguments:${no}
                         highlight the filter matches by inverting their colors
   -hu, --highlight-upper
                         same as '--highlight-matches' and with to uppercase
-                        converted letters (has no effect on OpenBSD, for
-                        details see section 2.7.1 inside the documentation)
-  -ic, --ignore-case    ignore the case of the given filter pattern (has no
-                        effect on OpenBSD, for details see section 2.7.
-                        inside the documentation)
+                        converted letters
+  -ic, --ignore-case    ignore the case of the given filter pattern
   --interactive         same as '--dialogs'
   --no-info             do not display the information header and footer
-  -p, --prompt          prompt before exit (in case the process gets canceled
-  --pause PAUSE         Pause output after a certain amount of lines
+  -p, --prompt          prompt before exit
+  --pause PAUSE         pause output after a certain amount of lines
   -r REMOVE, --remove REMOVE
                         remove a certain string from each line (for details
                         see section 6 inside the documentation file)
@@ -270,6 +359,7 @@ ${lb}optional arguments:${no}
   -t TAIL, --tail TAIL  only return the given number of last lines of the
                         input file
   -w WAIT, --wait WAIT  seconds to wait after printing a colorized line
+
 ${ly}general arguments:${no}
   --color-table         print the 256-color table to see which colors are
                         supported (can be displayed) by the terminal emulator
