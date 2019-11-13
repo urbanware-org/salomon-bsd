@@ -96,8 +96,8 @@ perform() {
 set_permissions() {
     chown -R root:root $target_dir
     if [ "$available" = "rootonly" ]; then
-        dirmod=770
-        filemod=660
+        dirmod=700
+        filemod=600
         execmod=$dirmod
     fi
     find $target_dir > $temp_file
