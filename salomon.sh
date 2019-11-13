@@ -62,6 +62,7 @@ elif [ -f "${script_dir}/salomon.cf" ]; then
 else
     usage "Global configuration file missing"
 fi
+check_config
 set_global_variables
 
 # Check command-line arguments
