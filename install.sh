@@ -94,7 +94,7 @@ perform() {
 }
 
 set_permissions() {
-    chown -R root:root $target_dir
+    chown -R root:wheel $target_dir
     if [ "$available" = "rootonly" ]; then
         dirmod=700
         filemod=600
