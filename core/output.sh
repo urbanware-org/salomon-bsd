@@ -11,27 +11,82 @@
 # ============================================================================
 
 pause_output() {
+    if [ $boxdrawing_chars -eq 1 ]; then
+        ln="═"
+    else
+        ln="="
+    fi
+
     anykey="${cl_lr}Press ${cl_yl}any key${cl_n} to ${cl_lg}continue${cl_n}"
-    message="${cl_dy}==${cl_ly}[$anykey${cl_ly}]${cl_dy}"
-    echo -e "${message}=================================================\r\c"
+    message="${cl_dy}$ln$ln${cl_ly}[$anykey${cl_ly}]${cl_dy}"
+    echo -e "${message}\c"
+
+    if [ "$line_width" = "auto" ]; then
+        term_cols=$(( $(tput cols) - 29 ))
+    else
+        term_cols=49
+    fi
+
+    for number in $(jot $term_cols 1); do
+          echo -e "$ln\c"
+    done
+    echo -e "\r\c"
     read -n1 -r < /dev/tty
     echo
 }
 
 print_line() {
     indent=30
+    if [ -z "$2" ]; then
+        line_leading=0
+    else
+        line_leading=1
+    fi
+
+    if [ $boxdrawing_chars -eq 1 ]; then
+        ld_char="┃"
+        if [ "$line_width" = "auto" ]; then
+            term_cols=$(( $(tput cols) - 2 ))
+        else
+            term_cols=76
+        fi
+    else
+        ld_char="*"
+        if [ "$line_width" = "auto" ]; then
+            term_cols=$(( $(tput cols) ))
+        else
+            term_cols=78
+        fi
+    fi
 
     if [ -z "$1" ]; then
-        echo -e "${cl_lb}*${cl_n}"
+        echo -e "${cl_lb}$ld_char${cl_n}"
     elif [ "$1" = "*" ]; then
-        echo -e "${cl_lb}\c"
-        for number in $(jot 78 1); do
-            echo -e "*\c"
-        done
-        echo -e "${cl_n}"
+        if [ "$ld_char" = "*" ]; then
+            echo -e "${cl_lb}\c"
+            for number in $(jot $term_cols 1); do
+                echo -e "*\c"
+            done
+            echo -e "${cl_n}"
+        else
+            if [ $line_leading -eq 1 ]; then
+                echo -e "${cl_lb}┏\c"
+            else
+                echo -e "${cl_lb}┗\c"
+            fi
+            for number in $(jot $term_cols 1); do
+                echo -e "━\c"
+            done
+            if [ $line_leading -eq 1 ]; then
+                echo -e "${cl_lb}┓\c"
+            else
+                echo -e "${cl_lb}┛\c"
+            fi
+            echo -e "${cl_n}"
+        fi
     else
         temp=$(printf "%-${indent}s" "$1")
-        echo -e "${cl_lb}* ${temp}${2}${cl_n}"
+        echo -e "${cl_lb}$ld_char ${temp}${2}${cl_n}"
     fi
 }
 
@@ -62,7 +117,9 @@ print_line_count() {
 
 print_output_header() {
     echo
-    print_line "*"
+    print_line "*" 1
+    print_line "${cl_lc}SaLoMon $version ${cl_n}started on ${cl_lc}$(date)"
+    print_line
 
     input_count=$(wc -w <<< $input_file)
     if [ $input_count -eq 1 ]; then
@@ -174,7 +231,7 @@ print_output_header() {
         if [ $highlight_matches -eq 1 ]; then
             temp="${cl_lg}Filter matches"
         elif [ $highlight_upper -eq 1 ]; then
-              temp="${cl_lg}Filter matches (in uppercase)"
+            temp="${cl_lg}Filter matches (in uppercase)"
         elif [ $highlight_all -eq 1 ]; then
             temp="${cl_lg}All lines"
         else
@@ -233,13 +290,27 @@ print_output_line() {
     line_lower=$(tr '[:upper:]' '[:lower:]' <<< "$1")
 
     if [ $separator_line -eq 1 ]; then
+        if [ $boxdrawing_chars -eq 1 ]; then
+            ln="─"
+        else
+            ln="-"
+        fi
+
         grep "^==>.*<==$" <<< $1 &>/dev/null
         if [ $? -eq 0 ]; then
             temp=$(sed -e "s/==>//g;s/<==//g;s/^ *//g;s/ *$//g" <<< $1)
             fp=$(readlink -f "$temp")
-            ln=$(printf -- "-%.0s" $(jot 80 0))
-            separator="${cl_dy}--${cl_ly}[${cl_yl}${fp}${cl_ly}]${cl_dy}$ln"
-            echo -e "${separator}${cl_n}" | cut -c 1-113
+            fp_len=$(wc -c <<< $fp)
+            if [ "$line_width" = "auto" ]; then
+                term_cols=$(( $(tput cols) + 1 - fp_len - 4))
+            else
+                term_cols=$(( 79 - fp_len - 4))
+            fi
+            echo -e "${cl_dy}$ln$ln${cl_ly}[${cl_yl}$fp${cl_ly}]${cl_dy}\c"
+            for number in $(jot $term_cols 1); do
+                echo -e "$ln\c"
+            done
+            echo -e "${cl_n}"
             return
         fi
     fi
