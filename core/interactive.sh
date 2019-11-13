@@ -177,8 +177,8 @@ get_color_file() {
         else
             tail "$color_file" &>/dev/null
             if [ $? -ne 0 ]; then
-              predef_error_dialog \
-                "No read permission on the given color file '$color_file'"
+                predef_error_dialog \
+                  "No read permission on the given color file '$color_file'"
             else
                 read_color_file "$color_file"
                 concat_arg "-c $color_file"
