@@ -7,7 +7,7 @@ CHANGELOG (SaLoMon-BSD)
           width of lines (separators) based on the terminal size.
         + Added some code to validate the values from the global config file.
 
-        * Revised the installation script significantly.           
+        * Revised the installation script significantly.
         * Revised the interactive mode (the main SaLoMon script does not exit
           after error dialogs anymore and returns to the previous dialog).
         * Revised the permission checks for given file paths (revised the
