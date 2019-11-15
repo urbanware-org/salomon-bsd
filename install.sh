@@ -1,7 +1,7 @@
 #!/usr/local/bin/bash
 
 # ============================================================================
-# SaLoMon - Simple log file monitor and analyzer (experimental BSD port)
+# SaLoMon-BSD - Simple log file monitor and analyzer (BSD port)
 # Install and uninstall script
 # Copyright (C) 2019 by Ralf Kilian
 # Distributed under the MIT License (https://opensource.org/licenses/MIT)
