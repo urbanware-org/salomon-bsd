@@ -397,7 +397,7 @@ else
             filter_list=$(sed -e "s/^;*//g" \
                               -e "s/;*$//g" \
                               -e "s/\ /#/g" \
-                              -e "s/;/\n/g" <<< "$temp")
+                              -e $'s/;/\\\n/g' <<< "$temp")
             filter_pattern=$(sed -e "s/#/\ /g" <<< "$temp")
             filter=1
         fi
