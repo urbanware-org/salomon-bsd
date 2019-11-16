@@ -102,7 +102,7 @@ The `sed` command privided by default does not support the `i` (ignore case) fla
 
 ## Version numbers
 
-Notice that although the version numbers of this port are similar to *Linux* version of *SaLoMon*, the releases are not identical and also not necessarily related.
+Notice that although the version numbers of this port are similar to the *Linux* version of *SaLoMon*, the releases are not identical and also not necessarily related.
 
 The *BSD* port was built from *SaLoMon* 1.13.0 for *Linux*. Due to this, the releases of the port started with that version number.
 
