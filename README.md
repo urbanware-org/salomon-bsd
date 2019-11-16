@@ -23,7 +23,7 @@ This is the *BSD* port of the project developed on *FreeBSD* and tested on vario
 
 :information_source: Notice that the version numbers of this port are independent from the *Linux* version of the project.
 
-[Top](#salomon-)
+[Top](#salomon-bsd-port-)
 
 ## Details
 
@@ -53,7 +53,7 @@ The project has been tested on the following distributions, yet.
 | *FreeBSD*    |    12.1 | `amd64`      |  5.0 | Runs out of the box. |
 | *NetBSD*     |     8.0 | `amd64`      |  5.0 | Requires running `shebang.sh` first. |
 
-[Top](#salomon-)
+[Top](#salomon-bsd-port-)
 
 ## Usage
 
@@ -67,7 +67,7 @@ You can find a fundamental documentation inside the *SaLoMon* [wiki](https://git
 
 In the `docs` sub-directory of the project, there are plain text files containing a detailed documentation for each component with further information and usage examples.
 
-[Top](#salomon-)
+[Top](#salomon-bsd-port-)
 
 ## Requirements
 
@@ -89,7 +89,7 @@ Due to the fact, that the script itself does not have a shebang it has to be exp
 bash shebang.sh
 ```
 
-[Top](#salomon-)
+[Top](#salomon-bsd-port-)
 
 ## Limitations
 
@@ -98,7 +98,7 @@ bash shebang.sh
 The `sed` command privided by default does not support the `i` (ignore case) flag. Due to this, the command-line arguments `--ignore-case` and
 `--highlight-upper` do not have any effect, as the filter terms are always case sensitive. This also applies to the strings for the `--remove` argument.
 
-[Top](#salomon-)
+[Top](#salomon-bsd-port-)
 
 ## Version numbers
 
@@ -106,7 +106,7 @@ Notice that although the version numbers of this port are similar to *Linux* ver
 
 The *BSD* port was built from *SaLoMon* 1.13.0 for *Linux*. Due to this, the releases of the port started with that version number.
 
-[Top](#salomon-)
+[Top](#salomon-bsd-port-)
 
 ## Support the project
 
@@ -116,7 +116,7 @@ If you have any requests or suggestions for improving or extending *SaLoMon*, it
 
 For example, if you have created a color config file for a log file which you want to share, you can send it to me so I can add it to the color config files distributed with *SaLoMon* by default.
 
-[Top](#salomon-)
+[Top](#salomon-bsd-port-)
 
 ## Contact
 
@@ -126,10 +126,10 @@ You can contact me by sending an email to <dev@urbanware.org>.
 
 Further information can be found inside the `CONTACT` file.
 
-[Top](#salomon-)
+[Top](#salomon-bsd-port-)
 
 ## Useless facts
 
 Whoever cares can find them [here](https://github.com/urbanware-org/salomon/wiki#useless-facts).
 
-[Top](#salomon-)
+[Top](#salomon-bsd-port-)
