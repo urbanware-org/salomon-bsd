@@ -21,7 +21,7 @@ This is the *BSD* port of the project developed on *FreeBSD* and tested on vario
 
 :penguin: The *Linux* version can be found [here](https://github.com/urbanware-org/salomon).
 
-:information_source: Notice that the version numbers of this port are independent from the *Linux* version of the project.
+:information_source: Notice that the [version numbers](#version-numbers) of this port are independent from the *Linux* version of the project.
 
 [Top](#salomon-bsd-port-)
 
