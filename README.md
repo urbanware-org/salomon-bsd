@@ -6,6 +6,7 @@
 *   [Usage](#usage)
 *   [Requirements](#requirements)
 *   [Limitations](#limitations)
+*   [Version numbers](#version-numbers)
 *   [Support the project](#support-the-project)
 *   [Contact](#contact)
 *   [Useless facts](#useless-facts)
@@ -16,11 +17,11 @@
 
 The *SaLoMon* project is a simple log file monitor and analyzer with various filter and highlighting features which can also be used with other text files.
 
-This is the *BSD* port of the project developed and tested on various [distributions](#distributions).
+This is the *BSD* port of the project developed on *FreeBSD* and tested on various [distributions](#distributions).
 
 :penguin: The *Linux* version can be found [here](https://github.com/urbanware-org/salomon).
 
-> Notice that although the version numbers of this port are similar to those of *SaLoMon* for *Linux*, the releases are not identical and also not necessarily related.
+:information_source: Notice that the version numbers of this port are independent from the *Linux* version of the project.
 
 [Top](#salomon-)
 
@@ -48,8 +49,9 @@ The project has been tested on the following distributions, yet.
 | ------------ | ------: | :----------: | ---: | ---------------------------------------|
 | *OpenBSD*    |     6.4 | `amd64`      |  4.4 | See [limitations](#limitations) below. |
 | *OpenBSD*    |     6.5 | `amd64`      |  5.0 | See [limitations](#limitations) below. |
-| *FreeBSD*    |    12.0 | `amd64`      |  5.0 |                                        |
-| *NetBSD*     |     8.0 | `amd64`      |  5.0 | Requires running `shebang.sh` first.   |
+| *FreeBSD*    |    12.0 | `amd64`      |  5.0 | Runs out of the box. |
+| *FreeBSD*    |    12.1 | `amd64`      |  5.0 | Runs out of the box. |
+| *NetBSD*     |     8.0 | `amd64`      |  5.0 | Requires running `shebang.sh` first. |
 
 [Top](#salomon-)
 
@@ -95,6 +97,14 @@ bash shebang.sh
 
 The `sed` command privided by default does not support the `i` (ignore case) flag. Due to this, the command-line arguments `--ignore-case` and
 `--highlight-upper` do not have any effect, as the filter terms are always case sensitive. This also applies to the strings for the `--remove` argument.
+
+[Top](#salomon-)
+
+## Version numbers
+
+Notice that although the version numbers of this port are similar to *Linux* version of *SaLoMon*, the releases are not identical and also not necessarily related.
+
+The *BSD* port was built from *SaLoMon* 1.13.0 for *Linux*. Due to this, the releases of the port started with that version number.
 
 [Top](#salomon-)
 
