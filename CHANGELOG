@@ -20,7 +20,7 @@ CHANGELOG (SaLoMon-BSD)
 
     Version 1.14.2 (2019-06-30)
 
-        + Added debug feature for core scripts (these scripts can be modified
+        + Added debug feature for core modules (these scripts can be modified
           without backup by copying them into a separate debug directory).
 
         * Revised the color table output (adjusted color information for pure
