@@ -48,6 +48,14 @@ analyze_input_file() {
     fi
     input_file=$temp_file
 
+    if [ $merge -eq 1 ]; then
+        merge_file="${temp_file}.merge"
+        sort < $temp_file > $merge_file
+        input_file=$merge_file
+    else
+        input_file=$temp_file
+    fi
+
     count=0
     while read line; do
         print_output_line "$line"
