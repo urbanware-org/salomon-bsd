@@ -7,6 +7,8 @@ CHANGELOG (SaLoMon-BSD)
           when using analyze mode (useful for files containing lines starting
           with timestamps).
 
+        # Revised some code in general (negligible changes).
+
     Version 1.15.0 (2019-11-15)
 
         + Added an option to the global config file to automatically set the
