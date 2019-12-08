@@ -95,8 +95,7 @@ bash shebang.sh
 
 ### *OpenBSD*
 
-The `sed` command privided by default does not support the `i` (ignore case) flag. Due to this, the command-line arguments `--ignore-case` and
-`--highlight-upper` do not have any effect, as the filter terms are always case sensitive. This also applies to the strings for the `--remove` argument.
+The `sed` command provided by default does not support the `i` (ignore case) flag. Due to this, the command-line arguments `--ignore-case` and `--highlight-upper` do not have any effect, as the filter terms are always case sensitive. This also applies to the strings for the `--remove` argument.
 
 [Top](#salomon-bsd-port-)
 
