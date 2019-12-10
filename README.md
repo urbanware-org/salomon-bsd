@@ -41,7 +41,7 @@ Furthermore, as you can see on the right, there is the option to use interactive
 
 ### Distributions
 
-Originally, the *BSD* port was developed on *OpenBSD*, but now on *FreeBSD*. This also is the only *BSD* derivate where the project is being tested regularly.
+Originally, the development of the *BSD* port was started under *OpenBSD*, but has moved to *FreeBSD*. This also is the only *BSD* derivate where the project is being tested regularly.
 
 The project has been tested on the following distributions, yet.
 
@@ -49,6 +49,7 @@ The project has been tested on the following distributions, yet.
 | ------------ | ------: | :----------: | ---: | ---------------------------------------|
 | *OpenBSD*    |     6.4 | `amd64`      |  4.4 | See [limitations](#limitations) below. |
 | *OpenBSD*    |     6.5 | `amd64`      |  5.0 | See [limitations](#limitations) below. |
+| *OpenBSD*    |     6.6 | `amd64`      |  5.0 | See [limitations](#limitations) below. |
 | *FreeBSD*    |    12.0 | `amd64`      |  5.0 | Runs out of the box. |
 | *FreeBSD*    |    12.1 | `amd64`      |  5.0 | Runs out of the box. |
 | *NetBSD*     |     8.0 | `amd64`      |  5.0 | Requires running `shebang.sh` first. |
