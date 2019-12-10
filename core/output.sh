@@ -171,7 +171,7 @@ print_output_header() {
         else
             temp="${cl_lr}No"
         fi
-        print_line "${cl_wh}Merge input files:" "$temp"        
+        print_line "${cl_wh}Merge input files:" "$temp"
         if [ $slow -eq 1 ]; then
             temp="${cl_lg}Yes ${cl_yl}(0.$delay seconds)"
         else
