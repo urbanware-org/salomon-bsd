@@ -108,7 +108,7 @@ The `--ignore-case` argument works with filter and exclude patterns, but does no
 
 When using `--highlight-upper`, the whole line will be switched to uppercase instead of just the highligted term.
 
-In case, the `--remove` argument is also given, the pattern is automatically uppercase for those lines.
+In case the `--remove` argument is also given, the pattern is automatically uppercase for those lines.
 
 [Top](#salomon-bsd-port-)
 
