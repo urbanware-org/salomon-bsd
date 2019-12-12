@@ -96,19 +96,25 @@ bash shebang.sh
 
 ### *OpenBSD*
 
-Unlike *FreeBSD* or *NetBSD*, the `sed` command provided by default in *OpenBSD* does not support the `i` (ignore case) flag.
+Unlike in *FreeBSD* or *NetBSD*, the `sed` command provided by default in *OpenBSD* does not support the `i` (ignore case) flag.
 
-Due to this, there are some limitations (or differences) which only affect the `--highlight-upper` feature as well as the `--remove` feature in combination with the `--ignore-case` argument.
+Due to this, there are some limitations (or differences) which however only affect the `--highlight-upper` feature as well as the `--remove` feature in combination with the `--ignore-case` argument.
 
-#### Remove feature
+Remove feature:
 
-The `--ignore-case` argument works with filter and exclude patterns, but does not have any effect with the `--remove` argument. So, the remove pattern is always case-sensitive here.
+    The '--ignore-case' argument works with filter and exclude
+    patterns, but does not have any effect with the '--remove'
+    argument. So, the remove pattern is always case-sensitive
+    here.
 
-#### Highlight with uppercase
+Highlight with uppercase:
 
-When using `--highlight-upper`, the whole line will be switched to uppercase instead of just the highligted term.
+    When using '--highlight-upper', the whole line will be
+    switched to uppercase instead of just the highlighted
+    term.
 
-In case the `--remove` argument is also given, the pattern is automatically uppercase for those lines.
+    In case the '--remove' argument is also given, the pattern
+    is automatically applied in uppercase for those lines.
 
 [Top](#salomon-bsd-port-)
 
