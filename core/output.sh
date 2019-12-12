@@ -392,10 +392,10 @@ print_output_line() {
                     temp=$(echo -e "${color_high}${term_case}${cl_n}"\
                                    "\b${color_code}")
                     if [ "$bsd_name" = "OpenBSD" ]; then
-			                  if [ $highlight_upper -eq 1 ]; then
-				                    ln=$(tr '[:lower:]' '[:upper:]' <<< "$line")
-				                    line="$ln"
-			                  fi
+                        if [ $highlight_upper -eq 1 ]; then
+                            ln=$(tr '[:lower:]' '[:upper:]' <<< "$line")
+                            line="$ln"
+                        fi
                         output=$(echo -e "${color_code}${line}${cl_n}" | \
                                  sed -e "s/$term_upper/$temp/g")
                     else
@@ -430,10 +430,10 @@ print_output_line() {
         for string in $remove_list; do
             rstr=$(sed -e "s/#/\ /g" <<< "$string")
             if [ "$bsd_name" = "OpenBSD" ]; then
-		            if [ $highlight_upper -eq 1 ]; then
-			              temp=$(tr '[:lower:]' '[:upper:]' <<< "$rstr")
-			              rstr="$temp"
-		            fi
+                if [ $highlight_upper -eq 1 ]; then
+                    temp=$(tr '[:lower:]' '[:upper:]' <<< "$rstr")
+                    rstr="$temp"
+                fi
                 line=$(echo -e "$output" | sed -e "s/${rstr}//g")
             else
                 line=$(echo -e "$output" | sed -e "s/${rstr}//ig")
