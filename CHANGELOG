@@ -36,7 +36,7 @@ CHANGELOG (SaLoMon-BSD)
         * Revised the installation script (negligible changes).
 
         # Fixed the remove pattern case-sensitivity bug (the remove pattern
-          was always case sensitive).
+          was always case-sensitive).
 
     Version 1.14.1 (2019-05-08)
 
@@ -45,7 +45,7 @@ CHANGELOG (SaLoMon-BSD)
           porting due to issues).
 
         # Fixed the filter case-sensitivity bug (the filter terms were always
-          case sensitive).
+          case-sensitive).
 
     Version 1.14.0 (2019-05-05)
 
