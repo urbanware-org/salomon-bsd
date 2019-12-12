@@ -205,11 +205,29 @@ USAGE (salomon.sh)
 
             2.7.1 OpenBSD
 
-                The 'sed' command does not support the 'i' (ignore case) flag.
-                Due to this, the command-line arguments '--ignore-case' and
-                '--highlight-upper' do not have any effect, so the filter
-                terms are always case sensitive. This also applies to the
-                strings for the '--remove' argument.
+                Unlike FreeBSD or NetBSD, the 'sed' command provided by
+                default in OpenBSD does not support the 'i' (ignore case)
+                flag.
+
+                Due to this, there are some limitations (or differences) which
+                only affect the '--highlight-upper' feature as well as the
+                '--remove' feature in combination with the '--ignore-case'
+                argument.
+
+                Remove feature:
+
+                    The '--ignore-case' argument works with filter and exclude
+                    patterns, but does not have any effect with the '--remove'
+                    argument. So, the remove pattern is always case-sensitive
+                    here.
+
+                Highlight with uppercase:
+
+                    When using '--highlight-upper', the whole line will be
+                    switched to uppercase instead of just the highligted term.
+
+                    In case the '--remove' argument is also given, the pattern
+                    is automatically uppercase for those lines.
 
     3. Processing input file
 
