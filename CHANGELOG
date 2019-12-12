@@ -1,12 +1,14 @@
 
 CHANGELOG (SaLoMon-BSD)
 
-    Next version (outstanding)
+    Version 1.16.0 (2019-12-12)
 
         + Added a command-line argument (and feature) to merge the input files
           when using analyze mode (useful for files containing lines starting
           with timestamps).
 
+        # Revised (and enhanced) the code inside the output core module to
+          provide a workaround for the OpenBSD limitations.
         # Revised some code in general (negligible changes).
 
     Version 1.15.0 (2019-11-15)
