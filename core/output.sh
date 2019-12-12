@@ -329,7 +329,6 @@ print_output_line() {
             if [ $line_length -lt $term_cols ]; then
                 break
             fi
-
             line_length=$(( line_length - term_cols + 1 ))
         done
 
