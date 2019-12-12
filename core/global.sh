@@ -16,7 +16,7 @@ set_global_variables() {
     # the main directory of SaLoMon for configuration options.
     # ------------------------------------------------------------------------
 
-    version="1.15.0"
+    version="1.16.0"
 
     bsd_name=$(uname)
 
