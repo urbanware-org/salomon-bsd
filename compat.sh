@@ -253,7 +253,7 @@ echo -e "Checking optional 'whiptail' command .................$line"\
         "${check_whiptail}"
 echo
 echo -e "Overall status .......................................$line"\
-         "${check_overall}"
+        "${check_overall}"
 echo
 
 rm -f $script_temp
