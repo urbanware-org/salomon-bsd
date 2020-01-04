@@ -14,10 +14,8 @@ script_dir=$(dirname $(readlink -f $0))
 . ${script_dir}/core/shell.sh   # Use POSIX standard instead of 'source' here
 shell_precheck_compat
 
-script_dir=$(dirname $(readlink -f $0))
 script_file=$(basename "$0")
 script_temp="$(dirname $(mktemp -u))/salomon_compat.sh"
-
 source ${script_dir}/core/common.sh
 source ${script_dir}/core/global.sh
 set_global_variables
@@ -35,12 +33,14 @@ check_declare="$failure"
 check_dialog="$missing"
 check_dirname="$failure"
 check_grep="$failure"
+check_kernel="$failure"
 check_paste="$failure"
 check_printf="$failure"
 check_readlink="$failure"
 check_sed="$failure"
 check_tail="$failure"
 check_trap="$failure"
+check_wget="$missing"
 check_whiptail="$missing"
 check_echo="$success"
 check_function="$failure"
@@ -48,6 +48,13 @@ check_failed=0
 check_missing=0
 check_overall="$failure"
 line="................"
+
+kernel_name=$(uname -s | tr '[:upper:]' '[:lower:]')
+if [[ $kernel_name =~ bsd ]]; then
+    check_kernel="$success"
+else
+    check_failed=1
+fi
 
 bash_major=$(sed -e "s/\..*//g" <<< $BASH_VERSION)
 if [ $bash_major -ge 4 ]; then
@@ -133,6 +140,13 @@ else
     check_failed=1
 fi
 
+command -v wget &>/dev/null
+if [ $? -eq 0 ]; then
+    check_wget="$success"
+else
+    check_missing=1
+fi
+
 command -v whiptail &>/dev/null
 if [ $? -eq 0 ]; then
     check_whiptail="$success"
@@ -165,6 +179,8 @@ else
 fi
 
 echo
+echo -e "Checking operating system kernel .....................$line"\
+        "${check_kernel}"
 echo -e "Checking Bash shell (version 4 or higher required) ...$line"\
         "${check_bash_major}"
 echo
@@ -188,6 +204,8 @@ echo -e "Checking for 'tail' command ..........................$line"\
         "${check_tail}"
 echo -e "Checking for 'trap' command ..........................$line"\
         "${check_trap}"
+echo -e "Checking for 'wget' command ..........................$line"\
+        "${check_wget}"
 echo -e "Checking capabilities of the 'echo' command ..........$line"\
         "${check_echo}"
 echo -e "Checking definition of functions .....................$line"\
@@ -203,6 +221,13 @@ echo -e "Overall status .......................................$line"\
 echo
 
 rm -f $script_temp
+
+if [[ $kernel_name =~ bsd ]]; then
+    echo -e "This seems to be a ${cl_yl}Linux${cl_n} derivate. In this case"\
+            "you may use ${cl_yl}SaLoMon${cl_n} instead of"
+    echo -e "${cl_yl}SaLoMon-BSD${cl_n}."
+    echo
+fi
 
 exit $return_code
 
