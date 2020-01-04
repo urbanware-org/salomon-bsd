@@ -10,63 +10,9 @@
 # GitLab: https://gitlab.com/urbanware-org/salomon-bsd
 # ============================================================================
 
-# Pre-check if the Bash shell is installed and if this script has been
-# executed using it
-separator="***************************************"
-command -v bash >/dev/null 2>&1
-if [ "$?" != "0" ]; then
-    echo
-    echo "${separator}${separator}"
-    echo "* This script has determined that the Bash shell (which is"\
-         "required) does    *"
-    echo "* not seem to be installed.                                      "\
-         "           *"
-    echo "*                                                                "\
-         "           *"
-    echo "* The SaLoMon project was developed on (and for) the Bash shell,"\
-         "which is    *"
-    echo "* the default shell on many Unix-like systems (or at least on"\
-        "many Linux     *"
-    echo "* distributions).                                                "\
-         "           *"
-    echo "*                                                                "\
-         "           *"
-    echo "* No matter which shell you are using, the Bash shell must be"\
-         "installed in   *"
-    echo "* order to use SaLoMon. As a matter of fact, the SaLoMon project"\
-         "takes       *"
-    echo "* advantage of certain features provided by the Bash shell."\
-         "                 *"
-    echo "${separator}${separator}"
-    echo
-    exit 1
-elif [ ! -n "$BASH" ]; then
-    echo
-    echo "${separator}${separator}"
-    echo "* This script has determined that it has not been executed using"\
-         "the Bash    *"
-    echo "* shell, but (maybe explicitly) with another one which is not"\
-         "supported.     *"
-    echo "*                                                                "\
-         "           *"
-    echo "* The SaLoMon project was developed on (and for) the Bash shell,"\
-         "which is    *"
-    echo "* the default shell on many Unix-like systems (or at least on"\
-        "many Linux     *"
-    echo "* distributions).                                                "\
-         "           *"
-    echo "*                                                                "\
-         "           *"
-    echo "* No matter which shell you are using, the Bash shell (version 4"\
-         "or higher)  *"
-    echo "* must be installed in order to use SaLoMon, as the project"\
-         "takes advantage  *"
-    echo "* of certain features provided by the Bash shell."\
-         "                           *"
-    echo "${separator}${separator}"
-    echo
-    exit 1
-fi
+script_dir=$(dirname $(readlink -f $0))
+. ${script_dir}/core/shell.sh   # Use POSIX standard instead of 'source' here
+shell_precheck
 
 script_dir=$(dirname $(readlink -f $0))
 script_file=$(basename "$0")
