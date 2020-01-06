@@ -1,7 +1,7 @@
 #!/usr/local/bin/bash
 
 # ============================================================================
-# SaLoMon-BSD - Simple log file monitor and analyzer (BSD port)
+# Salomon-BSD - Simple log file monitor and analyzer (BSD port)
 # Interactive dialog mode core script
 # Copyright (C) 2019 by Ralf Kilian
 # Distributed under the MIT License (https://opensource.org/licenses/MIT)

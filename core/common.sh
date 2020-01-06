@@ -1,7 +1,7 @@
 #!/usr/local/bin/bash
 
 # ============================================================================
-# SaLoMon-BSD - Simple log file monitor and analyzer (BSD port)
+# Salomon-BSD - Simple log file monitor and analyzer (BSD port)
 # Common core script
 # Copyright (C) 2019 by Ralf Kilian
 # Distributed under the MIT License (https://opensource.org/licenses/MIT)
@@ -182,9 +182,9 @@ check_update() {
 
     echo
     if [ "$version" = "$version_latest" ]; then
-        echo "This version of SaLoMon is up-to-date."
+        echo "This version of Salomon is up-to-date."
     else
-        echo "There is a newer version of SaLoMon available."
+        echo "There is a newer version of Salomon available."
         echo
         echo "For details see: $link_latest"
     fi
@@ -221,7 +221,7 @@ confirm() {
 debug_notification() {
     echo
     print_line "*" 1
-    print_line "${cl_yl}This version of SaLoMon has been modified for debug "\
+    print_line "${cl_yl}This version of Salomon has been modified for debug "\
                "purposes."
     print_line
     print_line "${cl_n}The '${cl_lc}debug${cl_n}' sub-directory contains "\

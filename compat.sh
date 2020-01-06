@@ -1,7 +1,7 @@
 #!/usr/local/bin/bash
 
 # ============================================================================
-# SaLoMon-BSD - Simple log file monitor and analyzer (BSD port)
+# Salomon-BSD - Simple log file monitor and analyzer (BSD port)
 # Shell compatibility script
 # Copyright (C) 2019 by Ralf Kilian
 # Distributed under the MIT License (https://opensource.org/licenses/MIT)
@@ -21,7 +21,7 @@ source ${script_dir}/core/global.sh
 set_global_variables
 
 echo
-echo -e "${cl_lc}SaLoMon compatibility check script${cl_n}"
+echo -e "${cl_lc}Salomon compatibility check script${cl_n}"
 
 failure="${cl_lr}FAILURE${cl_n}"
 missing="${cl_yl}MISSING${cl_n}"
@@ -224,8 +224,8 @@ rm -f $script_temp
 
 if [[ $kernel_name =~ bsd ]]; then
     echo -e "This seems to be a ${cl_yl}Linux${cl_n} derivate. In this case"\
-            "you may use ${cl_yl}SaLoMon${cl_n} instead of"
-    echo -e "${cl_yl}SaLoMon-BSD${cl_n}."
+            "you may use ${cl_yl}Salomon${cl_n} instead of"
+    echo -e "${cl_yl}Salomon-BSD${cl_n}."
     echo
 fi
 

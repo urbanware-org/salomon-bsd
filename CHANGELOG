@@ -1,5 +1,5 @@
 
-CHANGELOG (SaLoMon-BSD)
+CHANGELOG (Salomon-BSD)
 
     Next release (outstanding)
 
@@ -27,7 +27,7 @@ CHANGELOG (SaLoMon-BSD)
         + Added some code to validate the values from the global config file.
 
         * Revised the installation script significantly.
-        * Revised the interactive mode (the main SaLoMon script does not exit
+        * Revised the interactive mode (the main Salomon script does not exit
           after error dialogs anymore and returns to the previous dialog).
         * Revised the permission checks for given file paths (revised the
           already existing ones and added some new).
@@ -81,5 +81,5 @@ CHANGELOG (SaLoMon-BSD)
 
     Version 1.13.0 (2019-01-25)
 
-        * First version of the BSD port (based on SaLoMon 1.13.0).
+        * First version of the BSD port (based on Salomon 1.13.0).
 

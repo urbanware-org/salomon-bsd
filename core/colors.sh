@@ -1,7 +1,7 @@
 #!/usr/local/bin/bash
 
 # ============================================================================
-# SaLoMon-BSD - Simple log file monitor and analyzer (BSD port)
+# Salomon-BSD - Simple log file monitor and analyzer (BSD port)
 # Color management core script
 # Copyright (C) 2019 by Ralf Kilian
 # Distributed under the MIT License (https://opensource.org/licenses/MIT)
@@ -141,7 +141,7 @@ print_color_table() {
         echo
         echo "All numbers with black background are colors that cannot be"\
              "displayed (except"
-        echo "for number 0). When running SaLoMon on a pure text-based"\
+        echo "for number 0). When running Salomon on a pure text-based"\
              "interface (tty) there"
         echo "only are 16 colors available."
     else

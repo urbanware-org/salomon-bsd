@@ -1,7 +1,7 @@
 #!/usr/local/bin/bash
 
 # ============================================================================
-# SaLoMon-BSD - Simple log file monitor and analyzer (BSD port)
+# Salomon-BSD - Simple log file monitor and analyzer (BSD port)
 # Global variable core script
 # Copyright (C) 2019 by Ralf Kilian
 # Distributed under the MIT License (https://opensource.org/licenses/MIT)
@@ -13,7 +13,7 @@
 set_global_variables() {
     # ------------------------------------------------------------------------
     # Do not change any of the values below! See the 'salomon.cfg' file inside
-    # the main directory of SaLoMon for configuration options.
+    # the main directory of Salomon for configuration options.
     # ------------------------------------------------------------------------
 
     version="1.16.0"
