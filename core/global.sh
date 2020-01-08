@@ -3,7 +3,7 @@
 # ============================================================================
 # Salomon-BSD - Simple log file monitor and analyzer (BSD port)
 # Global variable core script
-# Copyright (C) 2019 by Ralf Kilian
+# Copyright (C) 2020 by Ralf Kilian
 # Distributed under the MIT License (https://opensource.org/licenses/MIT)
 #
 # GitHub: https://github.com/urbanware-org/salomon-bsd
@@ -16,7 +16,7 @@ set_global_variables() {
     # the main directory of Salomon for configuration options.
     # ------------------------------------------------------------------------
 
-    version="1.16.0"
+    version="1.16.1"
 
     bsd_name=$(uname)
 
