@@ -222,7 +222,7 @@ echo
 
 rm -f $script_temp
 
-if [[ $kernel_name =~ bsd ]]; then
+if [[ $kernel_name =~ linux ]]; then
     echo -e "This seems to be a ${cl_yl}Linux${cl_n} derivate. In this case"\
             "you may use ${cl_yl}Salomon${cl_n} instead of"
     echo -e "${cl_yl}Salomon-BSD${cl_n}."
