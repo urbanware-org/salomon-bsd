@@ -49,7 +49,7 @@ The project has been tested on the following distributions, yet.
 | ------------ | ------: | :----------: | ---: | ---------------------------------------|
 | *FreeBSD*    |    12.0 | `amd64`      |  5.0 | Runs out of the box.                   |
 | *FreeBSD*    |    12.1 | `amd64`      |  5.0 | Runs out of the box.                   |
-| *NetBSD*     |     8.0 | `amd64`      |  5.0 | Requires running `shebang.sh` first.   |
+| *NetBSD*     |     8.0 | `amd64`      |  5.0 | Runs out of the box.                   |
 | *OpenBSD*    |     6.4 | `amd64`      |  4.4 | See [limitations](#limitations) below. |
 | *OpenBSD*    |     6.5 | `amd64`      |  5.0 | See [limitations](#limitations) below. |
 | *OpenBSD*    |     6.6 | `amd64`      |  5.0 | See [limitations](#limitations) below. |
@@ -80,9 +80,7 @@ Furthermore, it uses popular shell utilities that should be pre-installed by def
 
 ### Shebang
 
-The *Bash* shebang inside the scripts is the default one from *OpenBSD* and *FreeBSD*.
-
-In case the scripts will not run and return a "bad interpreter" error (e.g. on *NetBSD*), simply run the included shebang adjustment script (without any arguments). This will automatically determine the path to the `bash` binary and adjust the shebang inside all other *Salomon* script files.
+In case the scripts will not run and return a "bad interpreter" error, simply run the included shebang adjustment script `shebang.sh` (without any arguments). This will automatically determine the path to the `bash` binary and adjust the shebang inside all other *Salomon* script files.
 
 Due to the fact, that the script itself does not have a shebang it has to be explicitly executed using the *Bash* shell as follows:
 
