@@ -1,4 +1,4 @@
-#!/usr/local/bin/bash
+#!/usr/bin/env bash
 
 # ============================================================================
 # Salomon-BSD - Simple log file monitor and analyzer (BSD port)
