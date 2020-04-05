@@ -342,6 +342,7 @@ read_filter() {
 
 usage() {
     error_msg=$1
+    error_msg_add=$2
 
     if [ "$usage_color" = "1" ]; then
         no=$cl_n
@@ -416,7 +417,7 @@ ${lb}optional arguments:${no}
   -ic, --ignore-case    ignore the case of the given filter pattern
   --interactive         same as '--dialogs'
   -m, --merge           merge all input files to a single sorted one (useful
-                        for files containing lines starting with timestamps)  
+                        for files containing lines starting with timestamps)
   --no-info             do not display the information header and footer
   -p, --prompt          prompt before exit
   --pause PAUSE         pause output after a certain amount of lines
@@ -444,7 +445,11 @@ file for this script.${no}"
             clear
         else
             echo
-            echo -e "${cl_lr}error:${cl_n} $error_msg."
+            if [ -z "$error_msg_add" ]; then
+                echo -e "${cl_lr}error:${cl_n} $error_msg."
+            else
+                echo -e "${cl_lr}error:${cl_n} $error_msg. $error_msg_add."
+            fi
         fi
         exit 1
     else
