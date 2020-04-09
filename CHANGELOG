@@ -12,7 +12,8 @@ CHANGELOG (Salomon-BSD)
         * Revised the update check function (the 'wget' tool must be
           installed).
 
-        # Fixed update URL (pointed to Salomon instead of Salomon-BSD before).
+        # Fixed the update URL (pointed to Salomon instead of Salomon-BSD
+          before).
 
     Version 1.16.1 (2020-01-08)
 
