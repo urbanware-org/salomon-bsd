@@ -166,7 +166,7 @@ check_patterns() {
 }
 
 check_update() {
-    link_latest="https://github.com/urbanware-org/salomon/releases/latest"
+    link_latest="https://github.com/urbanware-org/salomon-bsd/releases/latest"
     temp_file="$(dirname $(mktemp -u))/salomon_$$.tmp"
 
     command -v wget &>/dev/null
