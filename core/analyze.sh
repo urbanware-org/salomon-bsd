@@ -46,7 +46,6 @@ analyze_input_file() {
         paste -d "\n" $input_file_list | tail -n $tail_lines | grep -v "^$" \
               > $temp_file
     fi
-    input_file=$temp_file
 
     if [ $merge -eq 1 ]; then
         merge_file="${temp_file}.merge"
