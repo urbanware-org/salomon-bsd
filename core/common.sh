@@ -13,8 +13,8 @@
 cancel_process() {
     echo
     print_line "*" 1
-    temp="${cl_lr}Canceled ${cl_ly}on"
-    print_line "${temp}${cl_lc} user request${cl_ly}."
+    msg_cancel="${cl_lr}Canceled ${cl_ly}on"
+    print_line "${msg_cancel}${cl_lc} user request${cl_ly}."
 
     if [ $follow -eq 0 ]; then
         print_line
