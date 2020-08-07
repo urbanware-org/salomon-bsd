@@ -34,6 +34,12 @@ monitor_input_file() {
         fi
     done
 
+    if [ $merge -eq 1 ]; then
+        merge="-q"
+    else
+        merge=""
+    fi
+
     tail -n $tail_lines $merge -F $input_file_list 2>/dev/null | \
       while read line; do
         print_output_line "$line"
