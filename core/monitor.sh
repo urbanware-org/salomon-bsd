@@ -32,7 +32,6 @@ monitor_input_file() {
         else
             input_file_list="$input_file_list $filepath"
         fi
-
     done
 
     tail -n $tail_lines $merge -F $input_file_list 2>/dev/null | \
