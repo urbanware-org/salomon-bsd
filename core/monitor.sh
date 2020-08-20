@@ -35,9 +35,9 @@ monitor_input_file() {
     done
 
     if [ $merge -eq 1 ]; then
-        merge="-q"  
+        merge="-q"
     else
-        merge="" 
+        merge=""
     fi
 
     tail -n $tail_lines $merge -F $input_file_list 2>/dev/null | \
