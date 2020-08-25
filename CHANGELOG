@@ -1,6 +1,20 @@
 
 CHANGELOG (Salomon-BSD)
 
+    Version 1.16.3 (2020-08-25)
+
+        + Added a fallback to the default config file inside the common core
+          module (copy the default file and rename it appropriately).
+        + Added code to the analyzation core module to sort merged contents of
+          multiple input files.
+
+        * Revised some code in general (removed or replaced all unnecessary
+          variables).
+        * Revised the description of command-line arguments inside the common
+          core module (negligible changes).
+        * Revised the name of the temporary files (replaced timestamp with
+          process ID).
+
     Version 1.16.2 (2020-04-09)
 
         + Added some command-line argument count checks (to prevent
