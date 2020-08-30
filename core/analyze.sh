@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# ============================================================================
+#
 # Salomon-BSD - Simple log file monitor and analyzer (BSD port)
 # File analyzing core script
 # Copyright (C) 2020 by Ralf Kilian
@@ -8,7 +8,7 @@
 #
 # GitHub: https://github.com/urbanware-org/salomon-bsd
 # GitLab: https://gitlab.com/urbanware-org/salomon-bsd
-# ============================================================================
+#
 
 analyze_input_file() {
     check_patterns

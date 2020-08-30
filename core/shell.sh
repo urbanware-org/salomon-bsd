@@ -1,4 +1,4 @@
-# ============================================================================
+#
 # Salomon-BSD - Simple log file monitor and analyzer (BSD port)
 # Bash pre-check core script
 # Copyright (C) 2020 by Ralf Kilian
@@ -6,7 +6,7 @@
 #
 # GitHub: https://github.com/urbanware-org/salomon-bsd
 # GitLab: https://gitlab.com/urbanware-org/salomon-bsd
-# ============================================================================
+#
 
 shell_precheck() {
     command -v bash >/dev/null 2>&1

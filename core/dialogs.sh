@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# ============================================================================
+#
 # Salomon-BSD - Simple log file monitor and analyzer (BSD port)
 # Interactive dialog core script
 # Copyright (C) 2020 by Ralf Kilian
@@ -8,7 +8,7 @@
 #
 # GitHub: https://github.com/urbanware-org/salomon-bsd
 # GitLab: https://gitlab.com/urbanware-org/salomon-bsd
-# ============================================================================
+#
 
 dialog_action() {
     if [ -z "$1" ] || [ "$1" = "monitor" ]; then

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# ============================================================================
+#
 # Salomon-BSD - Simple log file monitor and analyzer (BSD port)
 # Global variable core script
 # Copyright (C) 2020 by Ralf Kilian
@@ -8,7 +8,7 @@
 #
 # GitHub: https://github.com/urbanware-org/salomon-bsd
 # GitLab: https://gitlab.com/urbanware-org/salomon-bsd
-# ============================================================================
+#
 
 set_global_variables() {
     # ------------------------------------------------------------------------
