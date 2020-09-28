@@ -248,7 +248,7 @@ else
             ;;
             -n|--no-follow)
                 follow=0
-                deprecated_argument "--no-follow" "--action"
+                deprecated_argument "--no-follow" "--analyze"
                 shift
             ;;
             --no-header)
