@@ -261,14 +261,14 @@ deprecated_argument() {
             "${cl_lr}removed${cl_n}"
     echo -e "        somewhen. You should use '${cl_lc}${arg_i}${cl_n}'" \
             "instead."
-    echo
-    wait_delay=3
+
+    wait_delay=10
     for sec in $(jot $wait_delay 1); do
         echo -e "        Proceeding in $wait_delay seconds.      \r\c"
         sleep 1
         wait_delay=$(( wait_delay - 1 ))
     done
-    echo "        Proceeding.                                 "
+    echo -e "${cl_lg}        Proceeding.                              ${cl_n}"
 }
 
 prepare_path() {
