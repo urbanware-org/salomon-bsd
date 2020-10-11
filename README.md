@@ -53,6 +53,7 @@ The project has been tested on the following distributions, yet.
 | *OpenBSD*    |     6.4 | `amd64`      |  4.4 | See [limitations](#limitations) below. |
 | *OpenBSD*    |     6.5 | `amd64`      |  5.0 | See [limitations](#limitations) below. |
 | *OpenBSD*    |     6.6 | `amd64`      |  5.0 | See [limitations](#limitations) below. |
+| *OpenBSD*    |     6.7 | `amd64`      |  5.0 | See [limitations](#limitations) below. |
 
 [Top](#salomon-bsd-port-)
 
