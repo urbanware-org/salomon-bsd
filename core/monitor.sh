@@ -40,7 +40,13 @@ monitor_input_file() {
         merge=""
     fi
 
-    tail -n $tail_lines $merge -F $input_file_list 2>/dev/null | \
+    if [ "$bsd_name" = "OpenBSD" ]; then
+        tail_arg="-f"
+    else
+        tail_arg="-F"
+    fi
+
+    tail -n $tail_lines $merge $tail_arg $input_file_list 2>/dev/null | \
       while read line; do
         print_output_line "$line"
         if [ $slow -eq 1 ]; then
