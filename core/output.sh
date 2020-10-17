@@ -403,8 +403,7 @@ print_output_line() {
                                    "\b${color_code}")
                     if [ "$bsd_name" = "OpenBSD" ]; then
                         if [ $highlight_upper -eq 1 ]; then
-                            ln=$(tr '[:lower:]' '[:upper:]' <<< "$line")
-                            line="$ln"
+                            line=$(tr '[:lower:]' '[:upper:]' <<< "$line")
                         fi
                         output=$(echo -e "${color_code}${line}${cl_n}" | \
                                  sed -e "s/$term_upper/$color_temp/g")
