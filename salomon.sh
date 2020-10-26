@@ -159,6 +159,10 @@ else
                 interactive=1
                 shift
             ;;
+            --less)
+                analyze_less=1
+                shift
+            ;;
             -m|--merge)
                 merge=1
                 shift
@@ -509,6 +513,22 @@ else
         # Merge input files
         if [ $merge -eq 1 ] && [ $input_count -lt 2 ]; then
             usage "The '--merge' argument requires at least two input files"
+        fi
+
+        # Use 'less' command to analyze input files
+        if [ $analyze_less -eq 1 ]; then
+            less_msg="The '--less' argument cannot be used"
+            if [ "$action" = "monitor" ]; then
+                usage "$less_msg with monitoring mode"
+            elif [ $pause -eq 1 ]; then
+                usage "$less_msg together with '--pause'"
+            elif [ $prompt -eq 1 ]; then
+                usage "$less_msg together with '-p' (or '--prompt')"
+            elif [ $slow -eq 1 ]; then
+                usage "$less_msg together with '-s' (or '--slow')"
+            elif [ ! "$wait_match" = "0" ]; then
+                usage "$less_msg together with '-w' (or '--wait')"
+            fi
         fi
 
         # Pause output
