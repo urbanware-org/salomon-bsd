@@ -413,6 +413,9 @@ print_output_line() {
                     fi
                     line="$output"
                     filter_match=1
+                    if [ $is_openbsd -eq 1 ]; then
+                        break
+                    fi
                 fi
             done
         else
