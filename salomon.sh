@@ -140,7 +140,11 @@ else
                 shift
             ;;
             -hm|--highlight-matches)
-                highlight_matches=1
+                if [ $is_openbsd -eq 1 ]; then
+                    highlight_upper=1
+                else
+                    highlight_matches=1
+                fi
                 shift
             ;;
             -hu|--highlight-upper)
