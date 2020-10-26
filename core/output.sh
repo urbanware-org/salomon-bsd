@@ -401,7 +401,7 @@ print_output_line() {
                     fi
                     color_temp=$(echo -e "${color_high}${term_case}${cl_n}" \
                                    "\b${color_code}")
-                    if [ "$bsd_name" = "OpenBSD" ]; then
+                    if [ $is_openbsd -eq 1 ]; then
                         if [ $highlight_upper -eq 1 ]; then
                             line=$(tr '[:lower:]' '[:upper:]' <<< "$line")
                         fi
@@ -438,7 +438,7 @@ print_output_line() {
     if [ $remove -eq 1 ]; then
         for string in $remove_list; do
             rstr=$(sed -e "s/#/\ /g" <<< "$string")
-            if [ "$bsd_name" = "OpenBSD" ]; then
+            if [ $is_openbsd -eq 1 ]; then
                 if [ $highlight_upper -eq 1 ]; then
                     rstr=$(tr '[:lower:]' '[:upper:]' <<< "$rstr")
                 fi

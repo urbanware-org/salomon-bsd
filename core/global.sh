@@ -17,6 +17,11 @@ set_global_variables() {
     version="1.16.4"
 
     bsd_name=$(uname)
+    if [ "$bsd_name" = "OpenBSD" ]; then
+        is_openbsd=1
+    else
+        is_openbsd=0
+    fi
 
     arg_case=""
     arg_list=$(readlink -f "$0")

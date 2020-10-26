@@ -40,7 +40,7 @@ monitor_input_file() {
         merge=""
     fi
 
-    if [ "$bsd_name" = "OpenBSD" ]; then
+    if [ $is_openbsd -eq 1 ]; then
         tail_arg="-f"
     else
         tail_arg="-F"
