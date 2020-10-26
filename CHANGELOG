@@ -3,6 +3,16 @@ CHANGELOG (Salomon-BSD)
 
     Next release (outstanding)
 
+        * Revised some usage and notification messages (neglibile changes).
+        * Revised the compatibility script (added a check for the 'less' and
+          'tput' command).
+
+        # Fixed highlighting issues when using OpenBSD (due to limitations the
+          command-line arguments '--highlight-matches' and '--highlight-upper'
+          are now identical).
+        # Fixed the monitoring mode bug when using OpenBSD (directly exited
+          after displaying the header before).
+
     Version 1.16.4 (2020-09-20)
 
         * Revised the installation script in general (added a clean install
