@@ -66,11 +66,30 @@ analyze_input_file() {
         input_file=$temp_file
     fi
 
+    if [ $analyze_less -eq 1 ]; then
+        less_file="${temp_file}.less"
+        rm -f $less_file
+    fi
+
     count=0
+    line_count=$(wc -l < $input_file)
     while read line; do
-        print_output_line "$line"
+        if [ $analyze_less -eq 1 ]; then
+            print_output_line "$line" >> $less_file
+            if [ $line_count -gt 0 ]; then
+                percent="$(( (count * 100) / line_count ))"
+            fi
+        else
+            print_output_line "$line"
+        fi
+
         if [ ! -z "$output" ]; then
             count=$(( count + 1 ))
+            if [ $analyze_less -eq 1 ] && [ $header -eq 1 ]; then
+                echo -e "${cl_lb}$ld_char${cl_n} ${cl_lg}Progress:${cl_n}" \
+                        "${cl_wh}$(printf "%3s" "$percent") %" \
+                        "${cl_ly}(line $count of $line_count)${cl_n}\r\c"
+            fi
         fi
 
         if [ $pause -gt 0 ]; then
@@ -92,42 +111,42 @@ analyze_input_file() {
             sleep 0.$delay
         fi
     done < $input_file
-    rm -f ${temp_file}*
-
-    if [ $header -eq 1 ]; then
+    if [ $analyze_less -eq 1 ] && [ $header -eq 1 ]; then
+        echo -e "${cl_lb}$ld_char${cl_n}${cl_lg}" \
+          "${cl_lg}Done.                                           ${cl_n}"
         echo
-        temp="Reached the end of the given input file."
-        print_line "*" 1
-        print_line "${cl_lc}${temp}"
-        print_line
-        print_line_count
-        if [ $prompt -eq 1 ]; then
-            print_line
-            print_line "${cl_ly}Press any key to exit."
-            print_line "*"
-            read -n1 -r
-        else
-            print_line "*"
-            echo
+    fi
+
+
+    if [ $analyze_less -eq 1 ]; then
+        if [ -f $less_file ]; then
+            less -r < $less_file
         fi
     else
-        if [ $prompt -eq 1 ]; then
-            if [ $boxdrawing_chars -eq 1 ]; then
-                ln="═"
+        if [ $header -eq 1 ]; then
+            echo
+            print_line "*" 1
+            print_line "${cl_lc}Reached the end of the given input file."
+            print_line
+            print_line_count
+            if [ $prompt -eq 1 ]; then
+                print_line
+                print_line "${cl_ly}Press any key to exit."
+                print_line "*"
+                read -n1 -r
             else
-                ln="="
+                print_line "*"
+                echo
             fi
-
-            anykey="${cl_ly}Press any key to exit${cl_n}"
-            message="${cl_dy}$ln$ln${cl_ly}[$anykey${cl_ly}]${cl_dy}"
-            echo -e "${message}\c"
-            for number in $(seq 1 53); do
-                echo -e "$ln\c"
-            done
-            echo -e "\r\c"
-            read -n1 -r
+        else
+            if [ $prompt -eq 1 ]; then
+                print_line "${cl_ly}Press any key to exit"
+                echo -e "\r\c"
+                read -n1 -r
+            fi
         fi
     fi
+    rm -f ${temp_file}*
 }
 
 # EOF
