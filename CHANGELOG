@@ -3,9 +3,12 @@ CHANGELOG (Salomon-BSD)
 
     Next release (outstanding)
 
+        + Added the optional analyzation method using the 'less' command.
+
         * Revised some usage and notification messages (neglibile changes).
         * Revised the compatibility script (added a check for the 'less' and
           'tput' command).
+        * Revised the whole documentation (usage files).
 
         # Fixed highlighting issues when using OpenBSD (due to limitations the
           command-line arguments '--highlight-matches' and '--highlight-upper'
