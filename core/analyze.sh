@@ -72,7 +72,7 @@ analyze_input_file() {
     fi
 
     count=0
-    line_count=$(wc -l < $input_file)
+    line_count=$(wc -l < $input_file | sed -e "s/\ //g")
     while read line; do
         if [ $analyze_less -eq 1 ]; then
             print_output_line "$line" >> $less_file
