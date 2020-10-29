@@ -8,6 +8,8 @@ CHANGELOG (Salomon-BSD)
         * Revised some usage and notification messages (neglibile changes).
         * Revised the compatibility script (added a check for the 'less' and
           'tput' command).
+        * Revised the installation script (removed unnecessary contents from
+          the installation directory).
         * Revised the whole documentation (usage files).
 
         # Fixed highlighting issues when using OpenBSD (due to limitations the
