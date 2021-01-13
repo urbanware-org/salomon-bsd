@@ -1,7 +1,7 @@
 #
 # Salomon-BSD - Simple log file monitor and analyzer (BSD port)
 # Bash pre-check core script
-# Copyright (C) 2020 by Ralf Kilian
+# Copyright (C) 2021 by Ralf Kilian
 # Distributed under the MIT License (https://opensource.org/licenses/MIT)
 #
 # GitHub: https://github.com/urbanware-org/salomon-bsd
