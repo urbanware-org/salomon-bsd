@@ -57,56 +57,86 @@ check_command() {
 }
 
 check_config() {
+    # Check each option from the config file. In case the option is missing or
+    # provided in the wrong format, a default value will be used.
+
+    # General options
+
     check_config_value "$boxdrawing_chars"        integer 1
     boxdrawing_chars=$config_value
+
     check_config_value "$delay"                   integer 200
     delay=$config_value
-    check_config_value "$dialog_program"          string  "auto" \
-      "auto dialog whiptail"
-    dialog_program=$config_value
-    check_config_value "$dialog_shadow"           integer 1
-    dialog_shadow=$config_value
-    check_config_value "$dialog_show_color"       integer 1
-    dialog_show_color=$config_value
-    check_config_value "$dialog_show_delay"       integer 1
-    dialog_show_delay=$config_value
-    check_config_value "$dialog_show_exclude"     integer 1
-    dialog_show_exclude=$config_value
-    check_config_value "$dialog_show_export"      integer 1
-    dialog_show_export=$config_value
-    check_config_value "$dialog_show_filter"      integer 1
-    dialog_show_filter=$config_value
-    check_config_value "$dialog_show_head_lines"  integer 1
-    dialog_show_head_lines=$config_value
-    check_config_value "$dialog_show_highlight"   integer 1
-    dialog_show_highlight=$config_value
-    check_config_value "$dialog_show_noinfo"      integer 1
-    dialog_show_noinfo=$config_value
-    check_config_value "$dialog_show_ignorecase"  integer 1
-    dialog_show_ignorecase=$config_value
-    check_config_value "$dialog_show_pause"       integer 1
-    dialog_show_pause=$config_value
-    check_config_value "$dialog_show_prompt"      integer 1
-    dialog_show_prompt=$config_value
-    check_config_value "$dialog_show_remove"      integer 1
-    dialog_show_remove=$config_value
-    check_config_value "$dialog_show_slowdown"    integer 1
-    dialog_show_slowdown=$config_value
-    check_config_value "$dialog_show_tail_lines"  integer 1
-    dialog_show_tail_lines=$config_value
-    check_config_value "$dialog_show_wait"        integer 1
-    dialog_show_wait=$config_value
-    check_config_value "$dialog_show_welcome"     integer 1
-    dialog_show_welcome=$config_value
+
     check_config_value "$line_width"              string  "auto" "auto fixed"
     line_width=$config_value
+
     check_config_value "$separator_line"          integer 1
     separator_line=$config_value
+
     check_config_value "$highlight_forecolor"     string  "terminal" \
       "terminal black white"
     highlight_forecolor=$config_value
+
     check_config_value "$usage_color"             integer 1
     usage_color=$config_value
+
+    # Dialog related options below
+
+    check_config_value "$dialog_program"          string  "auto" \
+      "auto dialog whiptail"
+    dialog_program=$config_value
+
+    check_config_value "$dialog_shadow"           integer 1
+    dialog_shadow=$config_value
+
+    check_config_value "$dialog_show_color"       integer 1
+    dialog_show_color=$config_value
+
+    check_config_value "$dialog_show_delay"       integer 1
+    dialog_show_delay=$config_value
+
+    check_config_value "$dialog_show_exclude"     integer 1
+    dialog_show_exclude=$config_value
+
+    check_config_value "$dialog_show_export"      integer 1
+    dialog_show_export=$config_value
+
+    check_config_value "$dialog_show_filter"      integer 1
+    dialog_show_filter=$config_value
+
+    check_config_value "$dialog_show_head_lines"  integer 1
+    dialog_show_head_lines=$config_value
+
+    check_config_value "$dialog_show_highlight"   integer 1
+    dialog_show_highlight=$config_value
+
+    check_config_value "$dialog_show_noinfo"      integer 1
+    dialog_show_noinfo=$config_value
+
+    check_config_value "$dialog_show_ignorecase"  integer 1
+    dialog_show_ignorecase=$config_value
+
+    check_config_value "$dialog_show_pause"       integer 1
+    dialog_show_pause=$config_value
+
+    check_config_value "$dialog_show_prompt"      integer 1
+    dialog_show_prompt=$config_value
+
+    check_config_value "$dialog_show_remove"      integer 1
+    dialog_show_remove=$config_value
+
+    check_config_value "$dialog_show_slowdown"    integer 1
+    dialog_show_slowdown=$config_value
+
+    check_config_value "$dialog_show_tail_lines"  integer 1
+    dialog_show_tail_lines=$config_value
+
+    check_config_value "$dialog_show_wait"        integer 1
+    dialog_show_wait=$config_value
+
+    check_config_value "$dialog_show_welcome"     integer 1
+    dialog_show_welcome=$config_value
 }
 
 check_config_value() {
@@ -429,7 +459,7 @@ ${lb}optional arguments:${no}
                         converted letters
   -ic, --ignore-case    ignore the case of the given filter pattern
   --interactive         same as '--dialogs'
-  --less                use the 'less' command to analyze files  
+  --less                use the 'less' command to analyze files
   -m, --merge           merge all input files to a single sorted one (useful
                         for files containing lines starting with timestamps)
   --no-info             do not display the information header and footer
