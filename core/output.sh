@@ -311,7 +311,9 @@ print_output_line() {
     color_match=0
     count_total=$(( count_total + 1 ))
     filter_match=0
-    line_lower=$(tr '[:upper:]' '[:lower:]' <<< "$1")
+
+    line="${ldg_char}$1"
+    line_lower=$(tr '[:upper:]' '[:lower:]' <<< "$line")
 
     if [ $separator_line -eq 1 ]; then
         grep "^==>.*<==$" <<< $1 &>/dev/null
