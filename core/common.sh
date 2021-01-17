@@ -383,6 +383,24 @@ read_filter() {
     rm -f $temp_file
 }
 
+set_line_characters() {
+    if [ $boxdrawing_chars -eq 1 ]; then
+        ld_char="┃"           # leading character used for header lines
+        ln_char="─"           # character for single lines
+        lnd_char="═"          # character for dougble lines
+        ldg_char="$ld_char "  # leading character used for output lines
+    else
+        ld_char="*"           # use asterisk instead
+        ln_char="-"
+        lnd_char="="
+        ldg_char="| "
+    fi
+
+    if [ $leading_line_char -eq 0 ]; then
+        ldg_char=""
+    fi
+}
+
 usage() {
     error_msg=$1
     error_msg_add=$2
