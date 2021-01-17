@@ -326,7 +326,7 @@ print_arg_list() {
     message="${cl_ly}[${cl_lc}Command-line arguments${cl_ly}]${cl_dy}"
     echo -e "${cl_dy}$lnd_char$lnd_char${message}\c"
     for number in $(seq 1 52); do
-        echo -e "$ln_char\c"
+        echo -e "$lnd_char\c"
     done
 
     echo -e "\e[0m\n"
