@@ -354,7 +354,6 @@ print_output_line() {
     if [ $exclude -eq 1 ]; then
         for string in $exclude_list; do
             string=$(sed -e "s/#/\ /g" <<< "$string")
-
             grep -i "$string" <<< "$line_lower" &>/dev/null
             if [ $? -eq 0 ]; then
                 return
