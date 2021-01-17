@@ -319,12 +319,6 @@ prepare_path() {
 }
 
 print_arg_list() {
-    if [ $boxdrawing_chars -eq 1 ]; then
-        ln="═"
-    else
-        ln="="
-    fi
-
     arg_temp="/tmp/salomon_args_$$.txt"
     echo "$arg_list" > $arg_temp
 
