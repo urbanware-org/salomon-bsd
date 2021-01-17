@@ -68,6 +68,9 @@ check_config() {
     check_config_value "$delay"                   integer 200
     delay=$config_value
 
+    check_config_value "$leading_line_char"       integer 0
+    leading_line_char=$config_value
+
     check_config_value "$line_width"              string  "auto" "auto fixed"
     line_width=$config_value
 
