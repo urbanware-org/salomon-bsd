@@ -1,14 +1,17 @@
 
 CHANGELOG (Salomon-BSD)
 
-    Version 1.18.0 (2021-01-14)
+    Version 1.18.0 (2021-01-17)
 
         + Added the optional leading line character feature.
 
-        * Revised the code in general (removed duplicates, unnecessary spaces
-          as well as blank lines and fixed inconsistent indentation).
+        * Revised the code in general (remove duplicates, unnecessary spaces
+          as well as blank lines and fix inconsistent indentation).
         * Revised the code to assign certain output characters (separate
           global function).
+        * Revised the code to check the values from the global config file
+          (negligible changes).
+        * Revised the content of the global config file in general.
 
         # Fixed the filter term bug in analyze mode (terms with spaces were
           not processed properly).
