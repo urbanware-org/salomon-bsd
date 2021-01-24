@@ -62,17 +62,17 @@ print_line() {
             echo -e "${cl_n}"
         else
             if [ $line_leading -eq 1 ]; then
-                echo -e "${cl_lb}┏\c"
+                echo -e "${cl_lb}$ctl_char\c"
             else
-                echo -e "${cl_lb}┗\c"
+                echo -e "${cl_lb}$cbl_char\c"
             fi
             for number in $(jot $term_cols 1); do
                 echo -e "━\c"
             done
             if [ $line_leading -eq 1 ]; then
-                echo -e "${cl_lb}┓\c"
+                echo -e "${cl_lb}$ctr_char\c"
             else
-                echo -e "${cl_lb}┛\c"
+                echo -e "${cl_lb}$cbr_char\c"
             fi
             echo -e "${cl_n}"
         fi
@@ -326,7 +326,8 @@ print_output_line() {
             else
                 term_cols=$(( 79 - fp_len - 4))
             fi
-            echo -e "${cl_dy}$ln_char$ln_char${cl_ly}[${cl_yl}$fp${cl_ly}]${cl_dy}\c"
+            fpc="${cl_yl}$fp${cl_ly}"
+            echo -e "${cl_dy}$ln_char$ln_char${cl_ly}[$fpc]${cl_dy}\c"
             for number in $(jot $term_cols 1); do
                 echo -e "$ln_char\c"
             done
