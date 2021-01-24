@@ -31,6 +31,13 @@ pause_output() {
 
 print_line() {
     indent=30
+
+    if [ $exit_prompt -eq 1 ]; then
+        lc="$char_prompt"
+    else
+        lc="$char_header_line_v"
+    fi
+    
     if [ -z "$2" ]; then
         line_leading=0
     else
@@ -78,11 +85,6 @@ print_line() {
         fi
     else
         string=$(printf "%-${indent}s" "$1")
-        if [ $canceled -eq 1 ]; then
-            lc="$char_prompt"
-        else
-            lc="$char_header_line_v"
-        fi
         echo -e "${cl_lb}$lc ${string}${2}${cl_n}"
     fi
 }
