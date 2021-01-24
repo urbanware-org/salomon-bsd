@@ -1,6 +1,17 @@
 
 CHANGELOG (Salomon-BSD)
 
+    Next release (outstanding)
+
+        * Revised the code in general (negligible changes).
+        * Revised output related code (characters for drawing lines as well as
+          prompt characters and set colors depending on exit condition).
+
+        # Fixed the merge dialog bug when nothing to merge (appeared even if
+          only one input file was given).
+        # Fixed the prompt on exit bug (did work when the argument to not
+          display the output header was given)
+
     Version 1.18.0 (2021-01-17)
 
         + Added the optional leading line character feature.
