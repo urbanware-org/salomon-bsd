@@ -631,6 +631,9 @@ if [ $header -eq 1 ]; then
 fi
 
 # Finally, process the given input file
+if [ $analyze_less -eq 0 ]; then
+    trap "cancel_process" 2 20
+fi
 if [ $follow -eq 1 ]; then
     monitor_input_file
 else

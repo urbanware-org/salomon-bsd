@@ -12,24 +12,32 @@
 
 cancel_process() {
     echo
-    print_line "*" 1
-    msg_cancel="${cl_lr}Canceled ${cl_ly}on"
-    print_line "${msg_cancel}${cl_lc} user request${cl_ly}."
+    if [ $header -eq 1 ]; then
+        print_line "*" 1
+        msg_cancel="${cl_lr}Canceled ${cl_ly}on"
+        print_line "${msg_cancel}${cl_lc} user request${cl_ly}."
 
-    if [ $follow -eq 0 ]; then
-        print_line
-        print_line_count
-    fi
-    if [ $prompt -eq 1 ]; then
-        trap - 2
-        print_line
-        print_line "${cl_ly}Press any key to exit."
-        print_line "*"
-        read -n1 -r < /dev/tty
+        if [ $follow -eq 0 ]; then
+            print_line
+            print_line_count
+        fi
+        if [ $prompt -eq 1 ]; then
+            trap - 2
+            print_line
+            print_line "${cl_ly}Press any key to exit."
+            print_line "*"
+            read -n1 -r < /dev/tty
+        else
+            print_line "*"
+        fi
     else
-        print_line "*"
-        echo
+        if [ $prompt -eq 1 ]; then
+            trap - 2
+            print_line "${cl_ly}Press any key to exit."
+            read -n1 -r < /dev/tty
+        fi
     fi
+    echo -e "\r\c"
 
     rm -f $temp_file
     exit 2
