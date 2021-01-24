@@ -31,6 +31,7 @@ cancel_process() {
             print_line "*"
         fi
     else
+        canceled=0
         if [ $prompt -eq 1 ]; then
             trap - 2
             print_line "${cl_ly}Press any key to exit."
@@ -333,9 +334,9 @@ print_arg_list() {
 
     clear
     message="${cl_ly}[${cl_lc}Command-line arguments${cl_ly}]${cl_dy}"
-    echo -e "${cl_dy}$lnd_char$lnd_char${message}\c"
+    echo -e "${cl_dy}$char_line_double$char_line_double${message}\c"
     for number in $(seq 1 52); do
-        echo -e "$lnd_char\c"
+        echo -e "$char_line_double\c"
     done
 
     echo -e "\e[0m\n"
@@ -391,24 +392,25 @@ read_filter() {
 
 set_line_characters() {
     if [ $boxdrawing_chars -eq 1 ]; then
-        ctl_char="┏"    # Box corner character, top left
-        ctr_char="┓"    # Box corner character, top right
-        cbl_char="┗"    # Box corner character, bottom left
-        cbr_char="┛"    # Box corner character, bottom right
-        ld_char="┃"     # leading character used for header lines
-        ldg_char="│ "   # optional leading character used for output lines
-        ln_char="─"     # character for single lines
-        lnd_char="═"    # character for double lines
+        char_header_ctl="┏"       # box corner character, top left
+        char_header_ctr="┓"       # box corner character, top right
+        char_header_cbl="┗"       # box corner character, bottom left
+        char_header_cbr="┛"       # box corner character, bottom right
+        char_header_line_h="━"    # box line character, horizontal
+        char_header_line_v="┃"    # box line character, horizontal
+        char_line_leading="│ "    # leading character used for output lines
+        char_line_single="─"      # character for single lines
+        char_line_double="═"      # character for double lines
     else
-        ld_char="*"     # use asterisk instead of a line
-        ldg_char="| "
-        ln_char="-"
-        lnd_char="="
+        char_header_line_v="*"    # use asterisk instead of a line
+        char_line_leading="| "
+        char_line_single="-"
+        char_line_double="="
     fi
-    prompt_char="■"
+    char_prompt="■"
 
     if [ $leading_line_char -eq 0 ]; then
-        ldg_char=""
+        char_line_leading=""
     fi
 }
 

@@ -31,6 +31,7 @@ set_global_variables() {
 
     action=""
     analyze_less=0
+    canceled=0
     copy=0
     export_file=""
     export_log=0
