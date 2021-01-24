@@ -52,9 +52,9 @@ print_line() {
     fi
 
     if [ -z "$1" ]; then
-        echo -e "${cl_lb}$char_line_leading${cl_n}"
+        echo -e "${cl_lb}$char_header_line_v${cl_n}"
     elif [ "$1" = "*" ]; then
-        if [ "$char_line_leading" = "*" ]; then
+        if [ "$char_header_line_v" = "*" ]; then
             echo -e "${cl_lb}\c"
             for number in $(jot $term_cols 1); do
                 echo -e "*\c"
