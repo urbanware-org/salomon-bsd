@@ -7,6 +7,7 @@ CHANGELOG (Salomon-BSD)
         * Revised output related code (characters for drawing lines as well as
           prompt characters and set colors depending on exit condition).
 
+        # Fixed the color file usage error messages (file name was missing).
         # Fixed the merge dialog bug when nothing to merge (appeared even if
           only one input file was given).
         # Fixed the prompt on exit bug (did work when the argument to not
