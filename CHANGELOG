@@ -11,7 +11,7 @@ CHANGELOG (Salomon-BSD)
         # Fixed the merge dialog bug when nothing to merge (appeared even if
           only one input file was given).
         # Fixed the prompt on exit bug (did work when the argument to not
-          display the output header was given)
+          display the output header was given).
 
     Version 1.18.0 (2021-01-17)
 
