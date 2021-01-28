@@ -479,8 +479,8 @@ print_output_line() {
         fi
     fi
 
-    if [ "$color_code" = "\e[0m" ] && [ $highlight_all -eq 0 ]; then
-        echo -e "\e[0m$line\e[0m"
+    if [ "$color_code" = "${cl_n}" ] && [ $highlight_all -eq 0 ]; then
+        echo -e "${cl_n}$line${cl_n}"
     else
         echo -e "$output"
     fi
