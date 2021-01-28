@@ -399,12 +399,12 @@ set_line_characters() {
         char_header_cbr="┛"       # box corner character, bottom right
         char_header_line_h="━"    # box line character, horizontal
         char_header_line_v="┃"    # box line character, horizontal
-        char_line_leading="│ "    # leading character used for output lines
+        char_line_leading="│"     # leading character used for output lines
         char_line_single="─"      # character for single lines
         char_line_double="═"      # character for double lines
     else
         char_header_line_v="*"    # use asterisk instead of a line
-        char_line_leading="| "
+        char_line_leading="|"
         char_line_single="-"
         char_line_double="="
     fi
