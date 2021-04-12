@@ -25,7 +25,6 @@ target_dir="/opt/salomon-bsd"
 
 clean_install=0
 exclude_config=""
-git_clone=".git snippets wiki README.md"
 keep_directory=0
 target="${cl_yl}${target_dir}${cl_n}"
 yesno="${cl_yl}Y${cl_n}/${cl_yl}N${cl_n}"
