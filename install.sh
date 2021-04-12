@@ -204,6 +204,9 @@ if [ $script_mode = "install" ]; then
     for dir in $git_clone; do
         rm -fR $target_dir/$git_clone &>/dev/null
     done
+    for markdown in $(find $target_dir | grep "\.md$"); do
+        rm -f $markdown
+    done
 
     echo -e "Setting permissions for installation directory... \c"
     if [ $available = "rootonly" ]; then
