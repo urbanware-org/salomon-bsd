@@ -20,7 +20,7 @@ source ${script_dir}/core/global.sh
 compatibility_check
 
 echo
-echo -e "${cl_lc}Salomon compatibility check script${cl_n}"
+echo -e "${cl_lc}Salomon-BSD compatibility check script${cl_n}"
 
 echo
 echo -e "Checking operating system kernel .....................$line" \
