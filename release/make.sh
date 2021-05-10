@@ -19,7 +19,7 @@ salomon_version="salomon-bsd-release-$version"
 salomon_archive="$salomon_version.tar.gz"
 salomon_checksum="$salomon_archive.sha256"
 git_clone=".git release snippets wiki"
-temp_dir="$(dirname $(mktemp -u --tmpdir))/salomon-bsd"
+temp_dir="/tmp/salomon-bsd"
 
 echo -e "${cl_lc}Salomon-BSD $version release builder${cl_n}"
 
@@ -31,7 +31,7 @@ rsync -a $salomon_dir $temp_dir
 
 echo -e "  - Removing non-relevant directories..."
 for dir in $git_clone; do
-    rm -fR $temp_dir/salomon/$dir &>/dev/null
+    rm -fR $temp_dir/salomon-bsd/$dir &>/dev/null
 done
 
 echo -e "  - Removing non-relevant files..."
@@ -40,7 +40,7 @@ for markdown in $(find $temp_dir | grep "\.md$"); do
 done
 
 echo -e "  - Creating release archive ('${cl_yl}$salomon_archive${cl_n}')..."
-mv $temp_dir/salomon $temp_dir/$salomon_version
+mv $temp_dir/salomon-bsd $temp_dir/$salomon_version
 tar czf $salomon_archive -C $temp_dir .
 
 echo -e "  - Generating archive checksum" \
