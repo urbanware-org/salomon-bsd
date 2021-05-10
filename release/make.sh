@@ -19,7 +19,7 @@ salomon_version="salomon-bsd-release-$version"
 salomon_archive="$salomon_version.tar.gz"
 salomon_checksum="$salomon_archive.sha256"
 git_clone=".git release snippets wiki"
-temp_dir="/tmp/salomon-bsd"
+temp_dir="$(dirname $(mktemp -u))/salomon-bsd"
 
 echo -e "${cl_lc}Salomon-BSD $version release builder${cl_n}"
 
