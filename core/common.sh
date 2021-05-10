@@ -328,7 +328,7 @@ prepare_path() {
 }
 
 print_arg_list() {
-    arg_temp="/tmp/salomon_args_$$.txt"
+    arg_temp="$(dirname $(mktemp -u))/salomon_args_$$.txt"
     echo "$arg_list" > $arg_temp
 
     clear

@@ -20,7 +20,7 @@ source ${script_dir}/core/global.sh
 set_global_variables
 
 script_mode=""
-temp_file="/tmp/salomon_install_$$.tmp"
+temp_file="$(dirname $(mktemp -u))/salomon_install_$$.tmp"
 target_dir="/opt/salomon-bsd"
 
 clean_install=0

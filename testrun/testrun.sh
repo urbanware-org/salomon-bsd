@@ -12,11 +12,11 @@
 
 salomon_script_dir=$(dirname $(readlink -f $0) | sed -e "s/testrun//g")
 salomon_script="$salomon_script_dir/salomon.sh"
-salomon_testrun_log="/tmp/salomon_testrun_$$.log"
+salomon_testrun_log="$(dirname $(mktemp -u))/salomon_testrun_$$.log"
 salomon_sample_log="$salomon_script_dir/samples/foobar.log"
 salomon_sample_colors="$salomon_script_dir/colors/log_colors.cfg"
 salomon_sample_log="$salomon_script_dir/samples/foobar.log"
-salomon_sample_log_temp="/tmp/salomon_foobar.log"
+salomon_sample_log_temp="$(dirname $(mktemp -u))/salomon_foobar.log"
 salomon_args="-i $salomon_sample_log -c $salomon_sample_colors --analyze"
 salomon_status=0
 cp -f $salomon_sample_log $salomon_sample_log_temp
