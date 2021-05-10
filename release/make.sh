@@ -45,7 +45,7 @@ tar czf $salomon_archive -C $temp_dir .
 
 echo -e "  - Generating archive checksum" \
         "('${cl_yl}$salomon_checksum${cl_n}')..."
-sha256sum $salomon_archive > $salomon_archive.sha256
+shasum -u 256 $salomon_archive > $salomon_archive.sha256
 
 echo -e "${cl_lg}Finished.${cl_n}"
 rm -fR $temp_dir
