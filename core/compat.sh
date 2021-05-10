@@ -45,7 +45,7 @@ compatibility_check() {
     line="................"
 
     kernel_name=$(uname -s | tr '[:upper:]' '[:lower:]')
-    if [[ $kernel_name =~ linux ]]; then
+    if [[ $kernel_name =~ bsd ]]; then
         check_kernel="$success"
     else
         check_failed=1
