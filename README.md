@@ -17,7 +17,7 @@
 
 The *Salomon* project is a simple log file monitor and analyzer with various filter and highlighting features which can also be used with other text files.
 
-This is the *BSD* port of the project developed on *FreeBSD* and tested on various [distributions](#distributions).
+:smiling_imp: This is the *BSD* port of the project developed on *FreeBSD* and tested on various [distributions](#distributions).
 
 :penguin: The *Linux* version can be found [here](https://github.com/urbanware-org/salomon).
 
