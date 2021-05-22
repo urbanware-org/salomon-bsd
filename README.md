@@ -49,6 +49,7 @@ The project has been tested on the following distributions, yet.
 | ------------ | ------: | :----------: | ---: | ---------------------------------------|
 | *FreeBSD*    |    12.0 | `amd64`      |  5.0 | Runs out of the box.                   |
 | *FreeBSD*    |    12.1 | `amd64`      |  5.0 | Runs out of the box.                   |
+| *FreeBSD*    |    13.0 | `amd64`      |  5.0 | Runs out of the box.                   |
 | *NetBSD*     |     8.0 | `amd64`      |  5.0 | Runs out of the box.                   |
 | *OpenBSD*    |     6.4 | `amd64`      |  4.4 | See [limitations](#limitations) below. |
 | *OpenBSD*    |     6.5 | `amd64`      |  5.0 | See [limitations](#limitations) below. |
