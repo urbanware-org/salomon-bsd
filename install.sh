@@ -39,6 +39,13 @@ dirmod=775
 filemod=664
 execmod=$dirmod
 
+if [ -d "/usr/share/icons/hicolor" ]; then
+    icon_path="/usr/share/icons/hicolor"
+elif [ -d "/usr/local/share/icons/hicolor" ]; then
+    icon_path="/usr/local/share/icons/hicolor"
+fi
+icon_path_scalable="$icon_path/scalable/apps"
+
 set_permissions() {
     chown -R root:wheel $target_dir
     if [ "$available" = "rootonly" ]; then
@@ -46,6 +53,7 @@ set_permissions() {
         filemod=600
         execmod=$dirmod
     fi
+    mkdir -p $temp_dir
     find $target_dir > $temp_file
     while read line; do
         if [ -f "$line" ]; then
@@ -60,6 +68,10 @@ set_permissions() {
         fi
     done < $temp_file
     rm -f $temp_file
+
+    if [ $(ls $temp_dir | wc -l) -eq 0 ]; then
+        rm -fR $temp_dir
+    fi
 }
 
 usage() {
@@ -184,7 +196,8 @@ if [ $script_mode = "install" ]; then
                         "installation directory. Due to"
                 echo -e "    this, a clean installation (removing and" \
                         "reinstalling the files) is not"
-                echo -e "    possible."
+                echo -e "    possible. This is not a problem, rather normal" \
+                        "behavior."
                 echo
             fi
         fi
@@ -231,6 +244,8 @@ if [ $script_mode = "install" ]; then
         # actual code to create the directory is executed before the files are
         # copied into it.
         echo -e "${cl_lb}(already exists)${cl_n}"
+    else
+        echo
     fi
 
     echo "Copying data to installation directory..."
@@ -258,6 +273,31 @@ if [ $script_mode = "install" ]; then
     for markdown in $(find $target_dir | grep "\.md$"); do
         rm -f $markdown
     done
+
+    if [ $install_icons -eq 1 ]; then
+        echo "Copying icon files to shared directory..."
+        for i in 16 24 32 48 64 96 128 256; do
+            if [ ! -e "$script_dir/icons/png/salomon_${i}x${i}.png" ]; then
+                continue
+            fi
+
+            if [ -d "$icon_path/${i}x${i}" ]; then
+                rm -f $icon_path/${i}x${i}/apps/salomon.png
+                cp $script_dir/icons/png/salomon_${i}x${i}.png \
+                   $icon_path/${i}x${i}/apps/salomon.png
+            fi
+
+            if [ -d $icon_path_scalable ]; then
+                rm -f $icon_path_scalable/salomon.svg
+                cp $script_dir/icons/svg/salomon.svg $icon_path_scalable/
+            fi
+        done
+
+        command -v gtk-update-icon-cache &>/dev/null
+        if [ $? -eq 0 ]; then
+            gtk-update-icon-cache -q $icon_path
+        fi
+    fi
 
     echo -e "Setting permissions for installation directory... \c"
     if [ $available = "rootonly" ]; then
@@ -311,12 +351,21 @@ else  # uninstall
         echo -e "${cl_lb}(does not exist)${cl_n}"
     fi
 
-    echo -e "Removing symbolic link for main script... \c"
-    if [ -f ${symlink_sh}/salomon ]; then
-        rm -f ${symlink_sh}/salomon &>/dev/null
+    echo -e "Removing icon files from shared directory... \c"
+    icons_installed=$(find $icon_path | egrep "salomon\.png|salomon\.svg")
+    if [ ! -z "$icons_installed" ]; then
+        for i in $icons_installed; do
+            rm -f $i
+        done
+        already_uninstalled=0
+
+        command -v gtk-update-icon-cache &>/dev/null
+        if [ $? -eq 0 ]; then
+            gtk-update-icon-cache -q $icon_path
+        fi
         echo
     else
-        echo -e "${cl_lb}(does not exist)${cl_n}"
+        echo -e "${cl_lb}(do not exist)${cl_n}"
     fi
 
     echo -e "Removing installation directory '${target}'... \c"
