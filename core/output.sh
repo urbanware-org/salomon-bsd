@@ -12,7 +12,8 @@
 
 pause_output() {
     anykey="${cl_lr}Press ${cl_yl}any key${cl_n} to ${cl_lg}continue${cl_n}"
-    message="${cl_dy}$char_line_single$char_line_single${cl_ly}[$anykey${cl_ly}]${cl_dy}"
+    anykey="${cl_ly}[$anykey${cl_ly}]"
+    message="${cl_dy}$char_line_single$char_line_single$anykey${cl_dy}"
     echo -e "${message}\c"
 
     if [ "$line_width" = "auto" ]; then
@@ -30,6 +31,8 @@ pause_output() {
 }
 
 print_line() {
+    string_leading="$1"
+    string_value="$2"
     indent=30
 
     if [ $exit_prompt -eq 1 ]; then
@@ -42,7 +45,7 @@ print_line() {
         lc="${cl_lb}$char_header_line_v"
     fi
 
-    if [ -z "$2" ]; then
+    if [ -z "$string_value" ]; then
         line_leading=0
     else
         line_leading=1
@@ -62,10 +65,10 @@ print_line() {
         fi
     fi
 
-    if [ -z "$1" ]; then
-        echo -e "${cl_lb}$char_header_line_v${cl_n}"
-    elif [ "$1" = "*" ]; then
-        if [ "$char_header_line_v" = "*" ]; then
+    if [ -z "$string_leading" ]; then
+        echo -e "${cl_lb}$lc${cl_n}"
+    elif [ "$string_leading" = "*" ]; then
+        if [ "$lc" = "*" ]; then
             echo -e "${cl_lb}\c"
             for number in $(jot $term_cols 1); do
                 echo -e "*\c"
@@ -88,8 +91,8 @@ print_line() {
             echo -e "${cl_n}"
         fi
     else
-        string=$(printf "%-${indent}s" "$1")
-        echo -e "$lc ${string}${2}${cl_n}"
+        string=$(printf "%-${indent}s" "$string_leading")
+        echo -e "$lc ${string}${string_value}${cl_n}"
     fi
 }
 
@@ -337,8 +340,8 @@ print_output_line() {
             else
                 term_cols=$(( 79 - fp_len - 4))
             fi
-            fpc="${cl_yl}$fp${cl_ly}"
-            echo -e "${cl_dy}$char_line_single$char_line_single${cl_ly}[$fpc]${cl_dy}\c"
+            fpc="${cl_ly}[${cl_yl}$fp${cl_ly}]"
+            echo -e "${cl_dy}$char_line_single$char_line_single$fpc${cl_dy}\c"
             for number in $(jot $term_cols 1); do
                 echo -e "$char_line_single\c"
             done
@@ -352,7 +355,7 @@ print_output_line() {
         line_length=${#line_lower}
 
         if [ $leading_line_char -eq 1 ]; then
-              term_cols=$(( term_cols - 2 ))
+            term_cols=$(( term_cols - 2 ))
         fi
 
         while true; do
@@ -363,8 +366,7 @@ print_output_line() {
         done
 
         line_filler=$(( term_cols - line_length ))
-        line_temp=$(jot -b "_" ${line_filler} 1)
-        line_spaces=$(echo $line_temp | sed -e "s/_//g" | tr -d '[:digit:]')
+        line_spaces=$(seq -s " " ${line_filler} | tr -d '[:digit:]')
     else
         line_spaces=""
     fi
@@ -483,18 +485,30 @@ print_output_line() {
         fi
     fi
 
+    if [ $leading_line_char_colored -eq 1 ]; then
+        if [ $leading_line_char_custom_color -ge 1 ] &&
+           [ $leading_line_char_custom_color -le 255 ]; then
+            get_color_code $leading_line_char_custom_color
+            char_ll="${color_code}${char_line_leading}${cl_n}"
+        else
+            char_ll="${color_code}${char_line_leading}${cl_n}"
+        fi
+    else
+        char_ll="${cl_n}${char_line_leading}${cl_n}"
+    fi
+
     if [ "$color_code" = "${cl_n}" ] && [ $highlight_all -eq 0 ]; then
         if [ $leading_line_char -eq 1 ]; then
-            echo -e "${cl_n}${char_line_leading} $line${cl_n}"
+            echo -e "${cl_n}${char_ll} ${line}${cl_n}"
         else
             echo -e "${cl_n}${line}${cl_n}"
         fi
     else
-        if [ $leading_line_char -eq 1 ]; then
+      if [ $leading_line_char -eq 1 ]; then
             if [ $leading_line_char_colored -eq 1 ]; then
-                echo -e "${color_code}$char_line_leading $output"
+                echo -e "${color_code}${char_ll} ${output}"
             else
-                echo -e "$char_line_leading $output"
+                echo -e "${char_ll} ${output}"
             fi
         else
             echo -e "$output"
@@ -502,7 +516,7 @@ print_output_line() {
     fi
 
     if [ $export_log -eq 1 ]; then
-        echo -e "$output" >> $export_file
+        sed -e "s/\ *$//g" <<< "$output" >> $export_file
     fi
 
     count_lines=$(( count_lines + 1 ))
