@@ -65,6 +65,13 @@ analyze_input_file() {
         rm -f $less_file
     fi
 
+    if [ $less_delay -lt 1 ]; then
+        less_delay=1
+    elif [ $less_delay -gt 900 ]; then
+        less_delay=900
+    fi
+    less_delay=$(printf "%03d\n" $less_delay)
+
     count=0
     line_count=$(wc -l < $input_file | sed -e "s/\ //g")
     while read line; do
@@ -77,14 +84,14 @@ analyze_input_file() {
             print_output_line "$line"
         fi
 
-        if [ ! -z "$output" ]; then
-            count=$(( count + 1 ))
-            if [ $analyze_less -eq 1 ] && [ $header -eq 1 ]; then
-                echo -e "${cl_lb}$char_header_line_v${cl_n}" \
-                        "${cl_lg}Progress:${cl_n}" \
-                        "${cl_wh}$(printf "%3s" "$percent") %" \
-                        "${cl_ly}(line $count of $line_count)${cl_n}\r\c"
-            fi
+        count=$(( count + 1 ))
+        if [ $analyze_less -eq 1 ] && [ $header -eq 1 ]; then
+            echo -e "${cl_lb}$char_header_line_v${cl_n}" \
+                    "${cl_lg}Progress:${cl_n}" \
+                    "${cl_wh}$(printf "%3s" "$percent") %" \
+                    "${cl_ly}(line $count of $line_count)${cl_n}\r\c"
+
+            sleep 0.${less_delay}   # reduce the CPU load, at least a bit
         fi
 
         if [ $pause -gt 0 ]; then
