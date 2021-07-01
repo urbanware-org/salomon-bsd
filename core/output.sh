@@ -506,9 +506,10 @@ print_output_line() {
     else
       if [ $leading_line_char -eq 1 ]; then
             if [ $leading_line_char_colored -eq 1 ]; then
-                echo -e "${color_code}${char_ll} ${output}"
+                echo -e "${color_code}${char_ll}" \
+                        "${output}" | sed -e "s/\ *$//g"
             else
-                echo -e "${char_ll} ${output}"
+                echo -e "${char_ll} ${output}" | sed -e "s/\ *$//g"
             fi
         else
             echo -e "$output"
