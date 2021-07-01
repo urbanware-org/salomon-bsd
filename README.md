@@ -100,9 +100,11 @@ The remove pattern from `-r` (or `--remove`) is always case-sensitive unless one
 
 ## Version numbers
 
-Notice that although the version numbers of this port are similar (or maybe even the same) to the *Linux* version of *Salomon*, the releases are not identical and also not necessarily related.
+Before version 1.20.0, the version numbers of this port were different from the ones of the *Linux* version.
 
-The *BSD* port was built from *Salomon* 1.13.0 for *Linux*. Due to this, the releases of the port started with that version number.
+Meanwhile the minor versions are adapted to those of *Salomon* for *Linux*. Thus it is recognizable by the minor version whether the *BSD* port is on the same state of the features of the *Linux* version.
+
+However, the revisions may still vary, e.g. due to bugfixes that were only necessary for one of the projects.
 
 [Top](#salomon-bsd-port-)
 
