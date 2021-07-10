@@ -366,7 +366,8 @@ print_output_line() {
         done
 
         line_filler=$(( term_cols - line_length ))
-        line_spaces=$(seq -s " " ${line_filler} | tr -d '[:digit:]')
+        line_temp=$(jot -b "_" ${line_filler} 1)
+        line_spaces=$(echo $line_temp | sed -e "s/_//g" | tr -d '[:digit:]')
     else
         line_spaces=""
     fi
