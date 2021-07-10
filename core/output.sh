@@ -500,25 +500,20 @@ print_output_line() {
 
     if [ "$color_code" = "${cl_n}" ] && [ $highlight_all -eq 0 ]; then
         if [ $leading_line_char -eq 1 ]; then
-            echo -e "${cl_n}${char_ll} ${line}${cl_n}"
+            echo -e "${cl_n}${char_line_leading} ${line}${cl_n}"
         else
             echo -e "${cl_n}${line}${cl_n}"
         fi
     else
-      if [ $leading_line_char -eq 1 ]; then
-            if [ $leading_line_char_colored -eq 1 ]; then
-                echo -e "${color_code}${char_ll}" \
-                        "${output}" | sed -e "s/\ *$//g"
-            else
-                echo -e "${char_ll} ${output}" | sed -e "s/\ *$//g"
-            fi
+        if [ $leading_line_char -eq 1 ]; then
+            echo -e "${char_ll} ${output}"
         else
-            echo -e "$output"
+            echo -e "${output}"
         fi
     fi
 
     if [ $export_log -eq 1 ]; then
-        sed -e "s/\ *$//g" <<< "$output" >> $export_file
+        echo -e "$output" >> $export_file
     fi
 
     count_lines=$(( count_lines + 1 ))
