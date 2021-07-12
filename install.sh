@@ -25,7 +25,7 @@ set_global_variables
 script_mode=""
 temp_dir="$(dirname $(mktemp -u --tmpdir))/salomon"
 temp_file="$temp_dir/salomon_install_$$.tmp"
-target_dir="/opt/salomon"
+target_dir="/opt/salomon-bsd"
 
 already_uninstalled=1
 clean_install=0
