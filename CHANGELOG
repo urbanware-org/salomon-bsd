@@ -7,7 +7,7 @@ CHANGELOG (Salomon-BSD)
           using the '--less' command-line argument to decrease the CPU load.
         + Added elementary compatibility checks into each script (without any
           output except when something does not work).
-        + Added some leading line character releated options for the custom
+        + Added some leading line character related options for the custom
           leading line character (if enabled, both the character itself and
           its color can be changed).
 
