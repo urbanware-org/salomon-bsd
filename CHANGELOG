@@ -1,10 +1,15 @@
 
 CHANGELOG (Salomon-BSD)
 
-    Next release (outstanding)
+    Version 1.20.0 (2021-07-12)
 
+        + Added an option for a marginal delay when processing the input data
+          using the '--less' command-line argument to decrease the CPU load.
         + Added elementary compatibility checks into each script (without any
           output except when something does not work).
+        + Added some leading line character releated options for the custom
+          leading line character (if enabled, both the character itself and
+          its color can be changed).
 
         * Revised the output messages of the compatibility check results.
         * Revised the script compatibility checks (moved main code into a new
@@ -14,6 +19,12 @@ CHANGELOG (Salomon-BSD)
 
         # Fixed the relative input file path bug when using interactive mode
           (requires absolute paths now).
+
+    Version 1.19.0 (skipped)
+
+        The minor versions are now adapted to those of Salomon for Linux. Thus
+        it is recognizable by the minor version whether the BSD port is on the
+        same state of the features of the Linux version.
 
     Version 1.18.2 (2021-02-11)
 
