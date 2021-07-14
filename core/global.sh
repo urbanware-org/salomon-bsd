@@ -58,7 +58,7 @@ set_global_variables() {
     color_list="black brown darkblue darkcyan darkgray darkgreen darkpurple"
     color_list="$color_list darkred lightblue lightcyan lightgray lightgreen"
     color_list="$color_list lightpurple lightred white yellow"
-    color_list="$color_list $(jot 256 1) random confetti"
+    color_list="$color_list $(jot 256 1) random"
     color_list="$color_list aqua blue fuchsia gray green lime maroon navy"
     color_list="$color_list olive purple red silver teal"
     color_random_min=1
