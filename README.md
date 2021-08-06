@@ -21,8 +21,6 @@ The *Salomon* project is a simple log file monitor and analyzer with various fil
 
 :penguin: The *Linux* version can be found [here](https://github.com/urbanware-org/salomon).
 
-:information_source: Notice that the [version numbers](#version-numbers) of this port are independent from the *Linux* version of the project.
-
 [Top](#salomon-bsd-port-)
 
 ## Details
