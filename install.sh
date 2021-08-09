@@ -45,6 +45,7 @@ elif [ -d "/usr/local/share/icons/hicolor" ]; then
     icon_path="/usr/local/share/icons/hicolor"
 fi
 icon_path_scalable="$icon_path/scalable/apps"
+icon_path_xpm="/usr/share/pixmaps"
 
 set_permissions() {
     chown -R root:wheel $target_dir
@@ -293,6 +294,11 @@ if [ $script_mode = "install" ]; then
             fi
         done
 
+        if [ -d $icon_path_xpm ]; then
+             rm -f $icon_path_xpm/salomon.xpm
+             cp $script_dir/icons/xpm/salomon.xpm $icon_path_xpm/
+        fi
+
         command -v gtk-update-icon-cache &>/dev/null
         if [ $? -eq 0 ]; then
             gtk-update-icon-cache -q $icon_path
@@ -357,6 +363,7 @@ else  # uninstall
         for i in $icons_installed; do
             rm -f $i
         done
+        rm -f $icon_path_xpm/salomon.xpm
         already_uninstalled=0
 
         command -v gtk-update-icon-cache &>/dev/null
