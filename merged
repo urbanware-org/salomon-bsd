@@ -1,2 +1,4 @@
-core/shell.sh   OK
-compat.sh       OK
+core/colors.sh        OK
+core/interactive.sh   OK
+core/shell.sh         OK
+compat.sh             OK
