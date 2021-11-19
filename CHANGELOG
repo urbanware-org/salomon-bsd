@@ -1,6 +1,16 @@
 
 CHANGELOG (Salomon-BSD)
 
+    Version 1.20.1 (2021-11-19)
+
+        + Added the Salomon icon in XPM image file format.
+
+        * Revised the command-line argument usage information inside the
+          common core module (added the mode alternatives as separate
+          arguments).
+        * Revised the installation script (added code to install and uninstall
+          the XPM icon as well as negligible changes).
+
     Version 1.20.0 (2021-07-12)
 
         + Added an option for a marginal delay when processing the input data
