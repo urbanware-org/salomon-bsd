@@ -14,7 +14,7 @@
 #           inside the main directory of Salomon for configuration options.
 
 set_global_variables() {
-    version="1.20.0"
+    version="1.20.1"
 
     bsd_name=$(uname)
     if [ "$bsd_name" = "OpenBSD" ]; then
