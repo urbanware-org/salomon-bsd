@@ -6,4 +6,4 @@ Thus, there is a single program for both platforms, *Linux* and *BSD*.
 
 For this reason, this separate *Salomon-BSD* repository was discontinued. You can still download the latest version available before the merge, but there will be no new features, revisions or bugfixes.
 
-If you want to view the old `README.md` from before the merge, see [here](https://github.com/urbanware-org/salomon-bsd/edit/main/README_OLD.md).
+If you want to view the old `README.md` from before the merge, see [here](https://github.com/urbanware-org/salomon-bsd/blob/main/README_OLD.md).
