@@ -1,4 +1,4 @@
-### <img src="https://raw.githubusercontent.com/urbanware-org/salomon-bsd/master/wiki/merge.png" alt="Important" height="86px" width="86px" align="left"/>*Salomon-BSD* was officially merged into the *[Salomon](https://github.com/urbanware-org/salomon)* project</a>
+### <img src="https://raw.githubusercontent.com/urbanware-org/salomon-bsd/master/wiki/merge.png" alt="Important" height="128px" width="128px" align="left"/>*Salomon-BSD* was officially merged into the *[Salomon](https://github.com/urbanware-org/salomon)* project</a>
 
 Once created from a fork of the original project, *Salomon-BSD* was merged with the *[Salomon](https://github.com/urbanware-org/salomon)* project again after modifying and unifying the platform dependent code.
 
